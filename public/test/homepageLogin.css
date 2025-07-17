@@ -306,6 +306,8 @@
 }
 
 .container-box-content {
+  display: flex;
+  flex-direction: column; 
   background-color: #212121;
   box-sizing: border-box;
   border-radius: 10px;
@@ -1270,8 +1272,6 @@
   margin: 4px 0;
 }
 
-
-
 .container-sidebar-right-next-song {
   display: flex;
   gap: 12px;
@@ -1821,7 +1821,7 @@
   color: #1db954;
 }
 .lyrics-container {
-  height: 536px;
+  height: 100%;
   overflow-y: auto;
   background-color: #330000;
   color: #ddd;
@@ -1831,7 +1831,7 @@
   text-align: center;
   border-radius: 8px;
 }
-.lyrics-container  {
+.lyrics-container {
   /* WebKit (Chrome, Safari) */
   &::-webkit-scrollbar {
     width: 6px;
@@ -1863,7 +1863,7 @@
 }
 
 .footer-homepage-right-btn1 {
-    background: none;
+  background: none;
   border: none;
   color: #ccc;
   font-size: 16px;
@@ -1872,3 +1872,9 @@
   padding: 4px;
   transition: color 0.2s ease;
 }
+.container-box-content2 {
+  display: none;
+  flex: 1;
+  height: 100%;
+}
+
