@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="test.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- container-sidebar-right-boxx-popup -->
+  <div class="container-sidebar-right-boxx1-popup">
+    <div class="container-sidebar-right-boxx1-popup-header">Thêm vào danh sách phát</div>
+    <input type="text" placeholder="Tìm một danh sách phát" class="container-sidebar-right-boxx1-playlist-search" />
+
+    <div class="container-sidebar-right-boxx1-playlist-item container-sidebar-right-boxx1-create-new">
+      <span class="container-sidebar-right-boxx-plus">+</span> Danh sách phát mới
+    </div>
+
+    <ul class="container-sidebar-right-boxx1-playlist-list">
+      <li class="container-sidebar-right-boxx1-playlist-item" onclick="toggleSelect(this)">
+        <div class="container-sidebar-right-boxx1-icon container-sidebar-right-boxx1-purple">
+          <span>♥</span>
+        </div>
+        <span class="container-sidebar-right-boxx1-text">Bài hát đã thích</span>
+        <div class="container-sidebar-right-boxx1-circle">
+          <span class="container-sidebar-right-boxx1-check">✔</span>
+        </div>
+      </li>
+
+      <li class="container-sidebar-right-boxx1-playlist-item" onclick="toggleSelect(this)">
+        <img src="imgSong.jpg" alt="" class="container-sidebar-right-boxx1-icon" />
+        <span class="container-sidebar-right-boxx1-text">Danh sách phát của tôi #1</span>
+        <div class="container-sidebar-right-boxx1-circle">
+          <span class="container-sidebar-right-boxx1-check">✔</span>
+        </div>
+      </li> 
+      <!-- thêm nhiều li nếu muốn test scroll -->
+    </ul>
+
+
+
+    <div class="container-sidebar-right-boxx1-popup-footer">
+      <button class="container-sidebar-right-boxx1-btn container-sidebar-right-boxx1-cancel">Hủy</button>
+      <button class="container-sidebar-right-boxx1-btn container-sidebar-right-boxx1-confirm">Xong</button>
+    </div>
+  </div>
+
+
+
+</body>
+<script>
+  function toggleSelect(el) {
+    el.classList.toggle("container-sidebar-right-boxx-selected");
+  }
+</script>
+
+
+</html>
