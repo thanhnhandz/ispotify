@@ -16,7 +16,8 @@ if (avatarBtn && dropdownMenu) {
 }
 
 // Play button logic
-window.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
+  // DOM elements
   const playButton = document.querySelector(
     ".footer-homepage-controls-fa-play"
   );
@@ -27,6 +28,101 @@ window.addEventListener("DOMContentLoaded", function () {
   const progressFill = document.getElementById("progressFill");
   const progressBar = document.getElementById("progressBar");
 
+  const lyricLines = document.querySelectorAll(".lyric-line");
+  const lyricsContainer = document.querySelector(".lyrics-container");
+
+  // State variable
+  let currentLyricIndex = -1;
+
+  // Helper: Format time (seconds to M:SS)
+  function formatTime(seconds) {
+    if (isNaN(seconds) || seconds < 0) return "0:00";
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? "0" + secs : secs}`;
+  }
+
+  // Highlight and scroll lyrics
+  function updateLyricsHighlight() {
+    if (!audio || !lyricLines || lyricLines.length === 0) return;
+
+    const currentTime = audio.currentTime;
+    let newActiveIndex = -1;
+
+    for (let i = 0; i < lyricLines.length; i++) {
+      const startTime = parseFloat(lyricLines[i].dataset.startTime);
+      let nextLineStartTime =
+        i + 1 < lyricLines.length
+          ? parseFloat(lyricLines[i + 1].dataset.startTime)
+          : audio.duration || Infinity;
+
+      if (currentTime >= startTime && currentTime < nextLineStartTime) {
+        newActiveIndex = i;
+        break;
+      }
+    }
+
+    if (newActiveIndex !== currentLyricIndex) {
+      if (currentLyricIndex !== -1 && lyricLines[currentLyricIndex]) {
+        lyricLines[currentLyricIndex].classList.remove("active");
+      }
+
+      if (newActiveIndex !== -1 && lyricLines[newActiveIndex]) {
+        lyricLines[newActiveIndex].classList.add("active");
+        scrollLyricsIntoView(lyricLines[newActiveIndex]);
+      } else {
+        // Scroll to top for intro sections if applicable
+        if (
+          currentTime < parseFloat(lyricLines[0].dataset.startTime) &&
+          lyricsContainer.scrollTop !== 0
+        ) {
+          lyricsContainer.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+      currentLyricIndex = newActiveIndex;
+    }
+  }
+
+  // Scroll active lyric line into view based on `linesToShowAbove`
+  function scrollLyricsIntoView(activeLine) {
+    if (!activeLine || !lyricsContainer) return;
+
+    const containerHeight = lyricsContainer.offsetHeight;
+    const lineHeight = activeLine.offsetHeight;
+    const lineOffsetTop = activeLine.offsetTop;
+    const paddingTop =
+      parseFloat(getComputedStyle(lyricsContainer).paddingTop) || 0;
+
+    // Number of lines to show above the active line
+    const linesToShowAbove = 7;
+
+    // Calculate scroll position to keep `linesToShowAbove` visible above active line
+    let scrollPosition =
+      lineOffsetTop - linesToShowAbove * lineHeight - paddingTop;
+
+    // Prevent scrolling above the top limit
+    if (scrollPosition < 0) {
+      scrollPosition = 0;
+    }
+
+    // Special case: scroll to bottom for the last few lines
+    const lastLinesThreshold = 3;
+    if (
+      (lyricLines.length > 0 &&
+        activeLine === lyricLines[lyricLines.length - 1]) ||
+      (currentLyricIndex !== -1 &&
+        lyricLines.length - 1 - currentLyricIndex < lastLinesThreshold)
+    ) {
+      scrollPosition = lyricsContainer.scrollHeight - containerHeight;
+    }
+
+    lyricsContainer.scrollTo({
+      top: scrollPosition,
+      behavior: "smooth",
+    });
+  }
+
+  // Check if all necessary DOM elements exist
   if (
     playButton &&
     icon &&
@@ -34,14 +130,11 @@ window.addEventListener("DOMContentLoaded", function () {
     currentTimeDisplay &&
     durationDisplay &&
     progressFill &&
-    progressBar
+    progressBar &&
+    lyricsContainer &&
+    lyricLines.length > 0
   ) {
-    function formatTime(seconds) {
-      const minutes = Math.floor(seconds / 60);
-      const secs = Math.floor(seconds % 60);
-      return `${minutes}:${secs < 10 ? "0" + secs : secs}`;
-    }
-
+    // Play/Pause button logic
     playButton.addEventListener("click", function () {
       const isPlaying = icon.classList.contains("fa-pause");
       icon.classList.toggle("fa-pause", !isPlaying);
@@ -49,22 +142,67 @@ window.addEventListener("DOMContentLoaded", function () {
       isPlaying ? audio.pause() : audio.play();
     });
 
+    // Update time and progress bar
     audio.addEventListener("timeupdate", function () {
       const current = audio.currentTime;
       const duration = audio.duration;
+
       currentTimeDisplay.textContent = formatTime(current);
-      durationDisplay.textContent = formatTime(duration);
-      progressFill.style.width = `${(current / duration) * 100}%`;
+      if (!isNaN(duration) && duration > 0) {
+        durationDisplay.textContent = formatTime(duration);
+        progressFill.style.width = `${(current / duration) * 100}%`;
+      } else {
+        durationDisplay.textContent = "0:00";
+        progressFill.style.width = "0%";
+      }
+      updateLyricsHighlight(); // Update lyrics on time change
     });
 
+    // Set total duration when audio metadata is loaded
     audio.addEventListener("loadedmetadata", function () {
-      durationDisplay.textContent = formatTime(audio.duration);
+      if (!isNaN(audio.duration)) {
+        durationDisplay.textContent = formatTime(audio.duration);
+      } else {
+        durationDisplay.textContent = "0:00";
+      }
+      updateLyricsHighlight(); // Initial lyrics update
     });
 
+    // Handle song ending
+    audio.addEventListener("ended", function () {
+      if (currentLyricIndex !== -1 && lyricLines[currentLyricIndex]) {
+        lyricLines[currentLyricIndex].classList.remove("active");
+      }
+      currentLyricIndex = -1;
+      lyricsContainer.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top
+      icon.classList.remove("fa-pause");
+      icon.classList.add("fa-play");
+      progressFill.style.width = "0%";
+      currentTimeDisplay.textContent = "0:00";
+    });
+
+    // Handle progress bar click (seeking)
     progressBar.addEventListener("click", function (e) {
       const duration = audio.duration;
-      audio.currentTime = (e.offsetX / progressBar.clientWidth) * duration;
+      if (isNaN(duration) || duration <= 0) return;
+
+      const clickX = e.offsetX;
+      const barWidth = progressBar.clientWidth;
+      audio.currentTime = (clickX / barWidth) * duration;
+      updateLyricsHighlight(); // Update lyrics immediately after seek
     });
+
+    // Handle audio seeking events
+    audio.addEventListener("seeked", function () {
+      updateLyricsHighlight(); // Update lyrics after seeking finishes
+    });
+
+    // Initial setup on page load
+    updateLyricsHighlight();
+  } else {
+    console.error(
+      "Missing one or more required DOM elements for player or lyrics. Please check your HTML."
+    );
   }
 });
 
@@ -272,115 +410,143 @@ if (plusIcon1 && popup1 && cancelBtn1 && confirmBtn1) {
     popup1.classList.remove("container-sidebar-right-boxx1-popup-active");
   });
 }
-// danh sách chờ
-const toggleBtn = document.getElementById("togglePlaylist");
-const playlistList = document.getElementById("playlistList");
-
-
 // bật tắt dsc và tt bài hát
 document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".footer-homepage-right-btn");
-    const playingList = document.querySelector(".container-sidebar-right-playing_list");
-    const waitingList = document.querySelector(".container-sidebar-right-waiting_list");
-    const sidebarRight = document.querySelector(".container-sidebar-right");
+  const buttons = document.querySelectorAll(".footer-homepage-right-btn");
+  const playingList = document.querySelector(
+    ".container-sidebar-right-playing-list"
+  );
+  const waitingList = document.querySelector(
+    ".container-sidebar-right-waiting-list"
+  );
+  const sidebarRight = document.querySelector(".container-sidebar-right");
 
-    buttons.forEach((btn) => {
-        btn.addEventListener("click", function () {
-            const isActive = this.classList.contains("footer-homepage-right-active");
+  const boxContent1 = document.querySelector(".container-box-content1");
+  const boxContent2 = document.querySelector(".container-box-content2");
 
-            // Xóa tất cả trạng thái active trước
-            buttons.forEach((b) => {
-                b.classList.remove("footer-homepage-right-active");
-                const dot = b.querySelector(".footer-homepage-right-dot");
-                if (dot) dot.remove();
-            });
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const isActive = this.classList.contains("footer-homepage-right-active"); // Xóa tất cả trạng thái active trước
 
-            // Toggle nếu chưa active
-            if (!isActive) {
-                this.classList.add("footer-homepage-right-active");
-                const span = document.createElement("span");
-                span.className = "footer-homepage-right-dot";
-                this.appendChild(span);
-            }
+      buttons.forEach((b) => {
+        b.classList.remove("footer-homepage-right-active");
+        const dot = b.querySelector(".footer-homepage-right-dot");
+        if (dot) dot.remove();
+      }); // Toggle nếu chưa active
 
-            // Hiển thị các khối tương ứng
-            const isPlayBtn = this.querySelector(".fa-circle-play");
-            const isListCheckBtn = this.querySelector(".fa-list-check");
+      if (!isActive) {
+        this.classList.add("footer-homepage-right-active");
+        const span = document.createElement("span");
+        span.className = "footer-homepage-right-dot";
+        this.appendChild(span);
+      } // Biến để theo dõi trạng thái hiển thị của sidebarRight và boxContents
 
-            playingList.style.display = "none";
-            waitingList.style.display = "none";
+      let displaySidebarRight = "none"; // Mặc định ẩn sidebarRight
+      let displayBoxContent1 = "block"; // Mặc định boxContent1 hiển thị
+      let displayBoxContent2 = "none"; // Mặc định boxContent2 ẩn // Ẩn playingList và waitingList mặc định
 
-            if (this.classList.contains("footer-homepage-right-active")) {
-                if (isPlayBtn) playingList.style.display = "block";
-                if (isListCheckBtn) waitingList.style.display = "block";
-            }
+      playingList.style.display = "none";
+      waitingList.style.display = "none"; // Lấy lại các nút đã được xác định
 
-            // Ẩn toàn bộ nếu không có nút nào active
-            const anyActive = document.querySelector(".footer-homepage-right-btn.footer-homepage-right-active");
-            sidebarRight.style.display = anyActive ? "block" : "none";
-        });
+      const isPlayBtn = this.querySelector(".fa-circle-play");
+      const isListCheckBtn = this.querySelector(".fa-list-check");
+      const isMicrophone = this.querySelector(".fa-microphone");
+
+      if (this.classList.contains("footer-homepage-right-active")) {
+        if (isPlayBtn) {
+          playingList.style.display = "block";
+          displaySidebarRight = "block"; // Sidebar hiển thị với nút Play
+          displayBoxContent1 = "block"; // Content1 hiển thị
+          displayBoxContent2 = "none"; // Content2 ẩn
+        } else if (isListCheckBtn) {
+          waitingList.style.display = "block";
+          displaySidebarRight = "block"; // Sidebar hiển thị với nút List-check
+        } else if (isMicrophone) {
+          displaySidebarRight = "none"; // Sidebar RIGHT ẩn với nút Microphone
+          displayBoxContent1 = "none"; // Content1 ẩn
+          displayBoxContent2 = "block"; // Content2 hiển thị
+        }
+      } else {
+        // Nếu nút vừa click bị tắt (tức là isActive là true ban đầu và bây giờ nó bị xóa active)
+        // Đảm bảo tất cả các list và boxContent về trạng thái mặc định/ẩn
+        playingList.style.display = "none";
+        waitingList.style.display = "none";
+        displaySidebarRight = "none"; // SidebarRight ẩn
+        displayBoxContent1 = "block"; // Content1 hiển thị (mặc định)
+        displayBoxContent2 = "none"; // Content2 ẩn
+      } // Áp dụng trạng thái hiển thị cuối cùng
+
+      sidebarRight.style.display = displaySidebarRight;
+      if (boxContent1) boxContent1.style.display = displayBoxContent1;
+      if (boxContent2) boxContent2.style.display = displayBoxContent2;
+    }); // bật tắt box container-box-content2
+  }); // Xử lý click vào nút close
+
+  const closeBtn = document.querySelector(
+    ".container-sidebar-right-waiting-list-close-btn"
+  );
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      const listCheckBtn = Array.from(buttons).find((btn) =>
+        btn.querySelector(".fa-list-check")
+      );
+      if (listCheckBtn) {
+        listCheckBtn.classList.remove("footer-homepage-right-active");
+        const dot = listCheckBtn.querySelector(".footer-homepage-right-dot");
+        if (dot) dot.remove();
+      }
+
+      waitingList.style.display = "none";
+      // Khi đóng waitingList, sidebarRight sẽ ẩn và boxContent1 hiện, boxContent2 ẩn
+      sidebarRight.style.display = "none";
+      if (boxContent1) boxContent1.style.display = "block";
+      if (boxContent2) boxContent2.style.display = "none"; // Dòng kiểm tra anyActive này không còn cần thiết ở đây vì đã đặt rõ ràng // const anyActive = document.querySelector(".footer-homepage-right-btn.footer-homepage-right-active"); // sidebarRight.style.display = anyActive ? "block" : "none";
     });
+  } // Xử lý click vào nút toggle danh sách chờ
 
-    // ✅ Xử lý click vào nút close
-    const closeBtn = document.querySelector(".close-btn");
-    if (closeBtn) {
-        closeBtn.addEventListener("click", function () {
-            const listCheckBtn = Array.from(buttons).find(btn =>
-                btn.querySelector(".fa-list-check")
-            );
-            if (listCheckBtn) {
-                listCheckBtn.classList.remove("footer-homepage-right-active");
-                const dot = listCheckBtn.querySelector(".footer-homepage-right-dot");
-                if (dot) dot.remove();
-            }
+  const toggleWaitingBtn = document.querySelector(
+    ".container-sidebar-right-toggle-btn"
+  );
+  if (toggleWaitingBtn) {
+    toggleWaitingBtn.addEventListener("click", function () {
+      const listCheckBtn = Array.from(buttons).find((btn) =>
+        btn.querySelector(".fa-list-check")
+      );
+      if (!listCheckBtn) return;
 
-            waitingList.style.display = "none";
+      const isActive = listCheckBtn.classList.contains(
+        "footer-homepage-right-active"
+      );
 
-            // Kiểm tra lại trạng thái toàn bộ
-            const anyActive = document.querySelector(".footer-homepage-right-btn.footer-homepage-right-active");
-            sidebarRight.style.display = anyActive ? "block" : "none";
+      // Nếu đang active thì tắt
+      if (isActive) {
+        listCheckBtn.classList.remove("footer-homepage-right-active");
+        const dot = listCheckBtn.querySelector(".footer-homepage-right-dot");
+        if (dot) dot.remove();
+        waitingList.style.display = "none";
+      } else {
+        // Tắt tất cả các nút khác
+        buttons.forEach((b) => {
+          b.classList.remove("footer-homepage-right-active");
+          const dot = b.querySelector(".footer-homepage-right-dot");
+          if (dot) dot.remove();
         });
-    }
 
-    // ✅ Xử lý click vào nút toggle danh sách chờ
-    const toggleWaitingBtn = document.querySelector(".container-sidebar-right-toggle-btn");
-    if (toggleWaitingBtn) {
-        toggleWaitingBtn.addEventListener("click", function () {
-            const listCheckBtn = Array.from(buttons).find(btn =>
-                btn.querySelector(".fa-list-check")
-            );
-            if (!listCheckBtn) return;
+        // Bật lại nút list-check
+        listCheckBtn.classList.add("footer-homepage-right-active");
+        const span = document.createElement("span");
+        span.className = "footer-homepage-right-dot";
+        listCheckBtn.appendChild(span);
 
-            const isActive = listCheckBtn.classList.contains("footer-homepage-right-active");
+        playingList.style.display = "none";
+        waitingList.style.display = "block";
+      }
 
-            // Nếu đang active thì tắt
-            if (isActive) {
-                listCheckBtn.classList.remove("footer-homepage-right-active");
-                const dot = listCheckBtn.querySelector(".footer-homepage-right-dot");
-                if (dot) dot.remove();
-                waitingList.style.display = "none";
-            } else {
-                // Tắt tất cả các nút khác
-                buttons.forEach((b) => {
-                    b.classList.remove("footer-homepage-right-active");
-                    const dot = b.querySelector(".footer-homepage-right-dot");
-                    if (dot) dot.remove();
-                });
-
-                // Bật lại nút list-check
-                listCheckBtn.classList.add("footer-homepage-right-active");
-                const span = document.createElement("span");
-                span.className = "footer-homepage-right-dot";
-                listCheckBtn.appendChild(span);
-
-                playingList.style.display = "none";
-                waitingList.style.display = "block";
-            }
-
-            // Kiểm tra toàn bộ
-            const anyActive = document.querySelector(".footer-homepage-right-btn.footer-homepage-right-active");
-            sidebarRight.style.display = anyActive ? "block" : "none";
-        });
-    }
-
+      // Kiểm tra toàn bộ
+      const anyActive = document.querySelector(
+        ".footer-homepage-right-btn.footer-homepage-right-active"
+      );
+      sidebarRight.style.display = anyActive ? "block" : "none";
+    });
+  }
 });
