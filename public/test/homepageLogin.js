@@ -401,15 +401,60 @@ const confirmBtn1 = document.querySelector(
 );
 if (plusIcon1 && popup1 && cancelBtn1 && confirmBtn1) {
   plusIcon1.addEventListener("click", () =>
-    popup1.classList.add("container-sidebar-right-boxx1-popup-active")
+    popup1.classList.add("container-sidebar-right-boxx1-active")
   );
   cancelBtn1.addEventListener("click", () => {
-    popup1.classList.remove("container-sidebar-right-boxx1-popup-active");
+    popup1.classList.remove("container-sidebar-right-boxx1-active");
   });
   confirmBtn1.addEventListener("click", () => {
-    popup1.classList.remove("container-sidebar-right-boxx1-popup-active");
+    popup1.classList.remove("container-sidebar-right-boxx1-active");
   });
 }
+// Popup mở thêm playlist
+
+// Mở popup
+const plusIcon2 = document.querySelector(
+  ".container-sidebar-right-waiting-list-menu-item-boxx2"
+);
+const popup2 = document.querySelector(".container-sidebar-right-boxx2-popup");
+const cancelBtn2 = document.querySelector(
+  ".container-sidebar-right-boxx2-cancel"
+);
+const confirmBtn2 = document.querySelector(
+  ".container-sidebar-right-boxx2-confirm"
+);
+
+// Toggle chọn playlist
+function toggleSelect2(el) {
+  el.classList.toggle("container-sidebar-right-boxx2-selected");
+}
+
+if (plusIcon2 && popup2 && cancelBtn2 && confirmBtn2) {
+  // Mở popup khi click vào icon
+  plusIcon2.addEventListener("click", function (e) {
+    e.stopPropagation(); // Ngăn sự kiện lan vào trong popup
+    popup2.classList.add("container-sidebar-right-boxx2-active");
+  });
+
+  // Đóng popup khi click "Hủy"
+  cancelBtn2.addEventListener("click", function (e) {
+    e.stopPropagation(); // Ngăn document click đóng popup trước
+    popup2.classList.remove("container-sidebar-right-boxx2-active");
+  });
+
+  // Đóng popup khi click "Xong"
+  confirmBtn2.addEventListener("click", function (e) {
+    e.stopPropagation(); // Ngăn document click đóng popup trước
+    popup2.classList.remove("container-sidebar-right-boxx2-active");
+  });
+  // Đóng popup khi click ra ngoài
+  document.addEventListener("click", function (e) {
+    if (!popup2.contains(e.target) && !plusIcon2.contains(e.target)) {
+      popup2.classList.remove("container-sidebar-right-boxx2-active");
+    }
+  });
+}
+
 // bật tắt dsc và tt bài hát
 document.addEventListener("DOMContentLoaded", function () {
   const buttons = document.querySelectorAll(".footer-homepage-right-btn");
@@ -548,5 +593,28 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       sidebarRight.style.display = anyActive ? "block" : "none";
     });
+  }
+});
+
+const menu = document.getElementById("contextMenu");
+const buttons = document.querySelectorAll(
+  ".container-sidebar-right-waiting-list-more-btn"
+);
+document
+  .querySelectorAll(".container-sidebar-right-waiting-list-more-btn")
+  .forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation(); // <--- ngăn sự kiện lan lên document
+      const rect = btn.getBoundingClientRect();
+      menu.style.position = "absolute";
+      menu.style.top = rect.bottom + window.scrollY + "px";
+      menu.style.left = rect.left + window.scrollX - 300 + "px";
+      menu.style.display = "block";
+    });
+  });
+
+document.addEventListener("click", (e) => {
+  if (!menu.contains(e.target)) {
+    menu.style.display = "none";
   }
 });
