@@ -14,4 +14,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const moreBtn = document.querySelector(".container-box-component-playlistPage-btn-icon");
+  const popupMenu = document.querySelector(".playlist-popup-menu");
+
+  moreBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    popupMenu.style.display = popupMenu.style.display === "block" ? "none" : "block";
+  });
+
+  // Ẩn popup khi click ra ngoài
+  document.addEventListener("click", () => {
+    popupMenu.style.display = "none";
+  });
+
+  // Ngăn chặn đóng khi click vào bên trong menu
+  popupMenu.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+});
 
