@@ -1,0 +1,321 @@
+.container-box-component-playlistPage {
+  background: linear-gradient(to bottom, #1e1e1e, #121212);
+  padding: 30px;
+  color: white;
+  font-family: sans-serif;
+  padding-bottom: 300px;
+}
+
+.container-box-component-playlistPage-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.container-box-component-playlistPage-thumb {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.container-box-component-playlistPage-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container-box-component-playlistPage-public {
+  font-size: 12px;
+  color: #b3b3b3;
+}
+
+.container-box-component-playlistPage-title {
+  font-size: 48px;
+  margin: 10px 0;
+}
+
+.container-box-component-playlistPage-subinfo {
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.container-box-component-playlistPage-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 30px 0 20px;
+  position: relative;
+}
+
+.container-box-component-playlistPage-btn-play {
+  width: 50px;
+  height: 50px;
+  background-color: #1ed760;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  position: relative;
+}
+.container-box-component-playlistPage-btn-play .icon-play {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+}
+.container-box-component-playlistPage-btn-play .icon-pause {
+  position: absolute;
+  top: 13px;
+  right: 17px;
+}
+.container-box-component-playlistPage-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.container-box-component-playlistPage-btn-icon {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.container-box-component-playlistPage-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+}
+
+.container-box-component-playlistPage-table th {
+  text-align: left;
+  padding: 10px;
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.container-box-component-playlistPage-table td {
+  padding: 10px;
+  border-top: 1px solid #333;
+  vertical-align: middle;
+  font-size: 14px;
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.container-box-component-playlistPage-song-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.container-box-component-playlistPage-song-thumb {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.container-box-component-playlistPage-song-title {
+  font-size: 14px;
+  font-weight: bold;
+    max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.container-box-component-playlistPage-song-title:hover {
+    text-decoration: underline;
+}
+.container-box-component-playlistPage-song-artist {
+  font-size: 12px;
+  color: #b3b3b3;
+}
+.container-box-component-playlistPage-song-artist:hover {
+    text-decoration: underline;
+}
+.container-box-component-playlistPage-align-right {
+  text-align: right;
+}
+.container-box-component-playlistPage-song-album:hover{
+    text-decoration: underline;
+}
+.container-box-component-playlistPage-playing-icon {
+  width: 16px;
+  height: 16px;
+  background-color: #1ed760;
+  border-radius: 2px;
+}
+
+.container-box-component-playlistPage-active-row {
+  color: #1ed760;
+}
+
+.container-box-component-playlistPage-more {
+  margin-top: 20px;
+  color: #b3b3b3;
+  font-size: 14px;
+  cursor: pointer;
+}
+.container-box-component-playlistPage-controls-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.container-box-component-playlistPage-controls-btn:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+.container-box-component-playlistPage-btn-icon:hover {
+  transform: scale(1.2);
+}
+
+.container-box-component-playlistPage-controls-btn.footer-homepage-controls-active
+  i {
+  color: #1db954;
+}
+.container-box-component-playlistPage-row-item-last {
+    width: 50px;
+}
+.container-box-component-playlistPage-row-item-first{
+    width: 40px;
+}
+/* Hover: đổi màu nền */
+.container-box-component-playlistPage-row:hover {
+  background-color: #2a2a2a;
+  cursor: pointer;
+}
+.container-box-component-playlistPage-row .icon-play-hover {
+    display: none;
+}
+/* Hover: hiện icon play */
+.container-box-component-playlistPage-row:hover .icon-play-hover {
+  display: inline-block;
+}
+
+/* Hover: ẩn số thứ tự */
+.container-box-component-playlistPage-row:hover .playlist-index-number {
+  display: none;
+}
+
+.container-box-component-playlistPage-row .playlist-more-icon {
+  display: none;
+}
+/* Hover: hiện dấu 3 chấm */
+.container-box-component-playlistPage-row:hover .playlist-more-icon {
+  display: inline-block;
+}
+
+.playlist-popup-menu {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 160px;
+  background-color: #282828;
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  width: 300px;
+}
+
+.playlist-popup-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+}
+
+.playlist-popup-menu li {
+  font-size: 14px;
+  padding: 10px 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.playlist-popup-menu li:hover {
+  background-color: #3e3e3e;
+}
+
+/* Đề xuất */
+.container-box-component-playlistPage-suggest-container {
+  margin-top: 20px;
+  color: white;
+  font-family: sans-serif;
+}
+
+.container-box-component-playlistPage-suggest-container h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.container-box-component-playlistPage-suggest-container p {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.container-box-component-playlistPage-suggest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.container-box-component-playlistPage-suggest-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.container-box-component-playlistPage-suggest-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.container-box-component-playlistPage-suggest-info {
+  flex: 1;
+}
+
+.container-box-component-playlistPage-song-name {
+  font-weight: bold;
+}
+
+.container-box-component-playlistPage-artist-name {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.container-box-component-playlistPage-album-name {
+  width: 200px;
+  font-size: 14px;
+  color: #ccc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container-box-component-playlistPage-add-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid #aaa;
+  padding: 5px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.container-box-component-playlistPage-add-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}

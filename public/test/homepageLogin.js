@@ -204,6 +204,52 @@ document.addEventListener("DOMContentLoaded", function () {
       "Missing one or more required DOM elements for player or lyrics. Please check your HTML."
     );
   }
+  // Handle secondary play/pause button (playlistPage)
+  const playlistPlayButton = document.querySelector(
+    ".container-box-component-playlistPage-btn-play"
+  );
+  const playlistIconPlay = playlistPlayButton?.querySelector(".icon-play");
+  const playlistIconPause = playlistPlayButton?.querySelector(".icon-pause");
+
+  if (playlistPlayButton && playlistIconPlay && playlistIconPause) {
+    playlistPlayButton.addEventListener("click", function () {
+      const isPlaying =
+        !playlistIconPlay.style.display ||
+        playlistIconPlay.style.display !== "none";
+
+      if (isPlaying) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+
+      // Update both control buttons
+      icon.classList.toggle("fa-pause", isPlaying);
+      icon.classList.toggle("fa-play", !isPlaying);
+
+      playlistIconPlay.style.display = isPlaying ? "none" : "inline";
+      playlistIconPause.style.display = isPlaying ? "inline" : "none";
+    });
+
+    // Sync UI when play triggered from other button
+    audio.addEventListener("play", () => {
+      icon.classList.add("fa-pause");
+      icon.classList.remove("fa-play");
+      if (playlistIconPlay && playlistIconPause) {
+        playlistIconPlay.style.display = "none";
+        playlistIconPause.style.display = "inline";
+      }
+    });
+
+    audio.addEventListener("pause", () => {
+      icon.classList.remove("fa-pause");
+      icon.classList.add("fa-play");
+      if (playlistIconPlay && playlistIconPause) {
+        playlistIconPlay.style.display = "inline";
+        playlistIconPause.style.display = "none";
+      }
+    });
+  }
 });
 
 // Search box toggle
@@ -277,29 +323,49 @@ if (sortMenu) {
 
 // Footer button toggle logic
 window.addEventListener("DOMContentLoaded", function () {
-  const btn1 = document.querySelectorAll(".footer-homepage-controls-btn")[0];
-  const btn5 = document.querySelector(".footer-homepage-controls-btn-repeat");
-  const btn6 = document.querySelector(".footer-homepage-controls-btn-repeat1");
   const ACTIVE_CLASS = "footer-homepage-controls-active";
 
+  // Shuffle buttons
+  const shuffleFooterBtn = document.querySelectorAll(".footer-homepage-controls-btn")[0]; // shuffle ở footer
+  const shufflePlaylistBtn = document.querySelector(".container-box-component-playlistPage-controls-btn"); // shuffle ở playlist
+
+  // Repeat buttons
+  const repeatBtn = document.querySelector(".footer-homepage-controls-btn-repeat");
+  const repeatOneBtn = document.querySelector(".footer-homepage-controls-btn-repeat1");
+
+  // Toggle class cho cả 2 nút shuffle
+  function toggleShuffleButtons() {
+    shuffleFooterBtn?.classList.toggle(ACTIVE_CLASS);
+    shufflePlaylistBtn?.classList.toggle(ACTIVE_CLASS);
+  }
+
+  // Toggle class đơn giản
   function toggleClass(button) {
     button.classList.toggle(ACTIVE_CLASS);
   }
 
-  if (btn1) btn1.addEventListener("click", () => toggleClass(btn1));
-  if (btn5 && btn6) {
-    btn5.addEventListener("click", () => {
-      const isActive = btn5.classList.contains(ACTIVE_CLASS);
-      toggleClass(btn5);
-      if (!isActive) btn6.classList.remove(ACTIVE_CLASS);
+  // Sự kiện cho nút shuffle ở footer và playlist
+  if (shuffleFooterBtn && shufflePlaylistBtn) {
+    shuffleFooterBtn.addEventListener("click", toggleShuffleButtons);
+    shufflePlaylistBtn.addEventListener("click", toggleShuffleButtons);
+  }
+
+  // Xử lý repeat và repeat1 (loại trừ nhau)
+  if (repeatBtn && repeatOneBtn) {
+    repeatBtn.addEventListener("click", () => {
+      const isActive = repeatBtn.classList.contains(ACTIVE_CLASS);
+      toggleClass(repeatBtn);
+      if (!isActive) repeatOneBtn.classList.remove(ACTIVE_CLASS);
     });
-    btn6.addEventListener("click", () => {
-      const isActive = btn6.classList.contains(ACTIVE_CLASS);
-      toggleClass(btn6);
-      if (!isActive) btn5.classList.remove(ACTIVE_CLASS);
+
+    repeatOneBtn.addEventListener("click", () => {
+      const isActive = repeatOneBtn.classList.contains(ACTIVE_CLASS);
+      toggleClass(repeatOneBtn);
+      if (!isActive) repeatBtn.classList.remove(ACTIVE_CLASS);
     });
   }
 });
+
 
 // Volume control
 const volumeIcon = document.querySelector(
@@ -596,25 +662,101 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-const menu = document.getElementById("contextMenu");
-const buttons = document.querySelectorAll(
-  ".container-sidebar-right-waiting-list-more-btn"
-);
-document
-  .querySelectorAll(".container-sidebar-right-waiting-list-more-btn")
-  .forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation(); // <--- ngăn sự kiện lan lên document
-      const rect = btn.getBoundingClientRect();
-      menu.style.position = "absolute";
-      menu.style.top = rect.bottom + window.scrollY + "px";
-      menu.style.left = rect.left + window.scrollX - 300 + "px";
-      menu.style.display = "block";
-    });
-  });
+// const menu = document.getElementById("contextMenu");
+// let currentButton = null;
 
+// const allButtons = document.querySelectorAll(
+//   ".container-sidebar-right-waiting-list-more-btn, .container-box-component-playlistPage-btn-icon"
+// );
+
+// allButtons.forEach((btn) => {
+//   btn.addEventListener("click", (e) => {
+//     e.stopPropagation();
+//     currentButton = btn;
+//     showMenuAtButton(currentButton);
+//   });
+// });
+
+// function showMenuAtButton(btn) {
+//   const rect = btn.getBoundingClientRect();
+//   menu.style.position = "absolute";
+//   menu.style.top = rect.bottom + window.scrollY + "px";
+//   menu.style.left = rect.left + window.scrollX - 300 + "px";
+//   menu.style.display = "block";
+// }
+
+// document.addEventListener("click", (e) => {
+//   if (!menu.contains(e.target)) {
+//     menu.style.display = "none";
+//     currentButton = null;
+//   }
+// });
+
+// // ✅ Tính lại khi cuộn
+// window.addEventListener("scroll", () => {
+//   if (menu.style.display === "block" && currentButton) {
+//     showMenuAtButton(currentButton);
+//   }
+// });
+const menu = document.getElementById("contextMenu");
+const buttons = document.querySelectorAll(".container-sidebar-right-waiting-list-more-btn, .playlist-more-icon");
+
+const scrollContainer1 = document.querySelector(".container-sidebar-right-waiting-list");
+const scrollContainer2 = document.querySelector(".container-box-content");
+
+let menuTriggerElement = null;
+let currentScrollContainer = null;
+
+// Hàm hiển thị menu tại vị trí của phần tử được click
+function showContextMenu(btn) {
+  const rect = btn.getBoundingClientRect();
+
+  menu.style.position = "absolute";
+  menu.style.top = rect.bottom + window.scrollY + "px";
+  menu.style.left = rect.left + window.scrollX - 300 + "px";
+  menu.style.display = "block";
+}
+
+// Gán sự kiện click cho các nút ba chấm
+buttons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    menuTriggerElement = btn;
+
+    // Xác định container nào là cha gần nhất có thể cuộn
+    if (btn.closest(".container-sidebar-right-waiting-list")) {
+      currentScrollContainer = scrollContainer1;
+    } else if (btn.closest(".container-box-content")) {
+      currentScrollContainer = scrollContainer2;
+    } else {
+      currentScrollContainer = null;
+    }
+
+    showContextMenu(btn);
+  });
+});
+
+// Ẩn menu khi click ra ngoài
 document.addEventListener("click", (e) => {
   if (!menu.contains(e.target)) {
     menu.style.display = "none";
+    menuTriggerElement = null;
+    currentScrollContainer = null;
   }
 });
+
+// Scroll cả hai container đều cập nhật vị trí menu nếu menu đang hiển thị
+function handleScroll() {
+  if (menu.style.display === "block" && menuTriggerElement) {
+    showContextMenu(menuTriggerElement);
+  }
+}
+
+scrollContainer1?.addEventListener("scroll", handleScroll);
+scrollContainer2?.addEventListener("scroll", handleScroll);
+
+
+
+
+
