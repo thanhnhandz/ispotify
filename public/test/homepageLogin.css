@@ -311,9 +311,11 @@
   background-color: #212121;
   box-sizing: border-box;
   border-radius: 10px;
-  padding: 20px;
   width: 75%;
   overflow-x: auto;
+}
+.container-box-content1 {
+  padding: 20px;
 }
 .container-box-content {
   /* WebKit (Chrome, Safari) */
@@ -579,12 +581,14 @@
   margin-bottom: 10px;
 }
 .container-box-footer--item {
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 5px;
+  color: #8f8f8f;
 }
 
 .container-box-footer--item:hover {
-  color: #5a5a5a;
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
   cursor: pointer;
 }
 .box--icon--span {
@@ -2014,7 +2018,7 @@
   overflow-y: auto;
   background-color: #330000;
   color: #ddd;
-  font-family: Arial, sans-serif;
+  font-family: "Gotham-XLight", sans-serif;
   font-size: 1.8em;
   line-height: 1.6;
   text-align: center;
