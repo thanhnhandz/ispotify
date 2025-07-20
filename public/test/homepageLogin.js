@@ -138,7 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
     playButton.addEventListener("click", function () {
       const isPlaying = icon.classList.contains("fa-pause");
       icon.classList.toggle("fa-pause", !isPlaying);
+      icon.classList.toggle("fa-pause-controls", !isPlaying);
       icon.classList.toggle("fa-play", isPlaying);
+      icon.classList.toggle("fa-play-controls", isPlaying);
       isPlaying ? audio.pause() : audio.play();
     });
 
@@ -235,6 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
     audio.addEventListener("play", () => {
       icon.classList.add("fa-pause");
       icon.classList.remove("fa-play");
+
       if (playlistIconPlay && playlistIconPause) {
         playlistIconPlay.style.display = "none";
         playlistIconPause.style.display = "inline";
@@ -326,12 +329,20 @@ window.addEventListener("DOMContentLoaded", function () {
   const ACTIVE_CLASS = "footer-homepage-controls-active";
 
   // Shuffle buttons
-  const shuffleFooterBtn = document.querySelectorAll(".footer-homepage-controls-btn")[0]; // shuffle ở footer
-  const shufflePlaylistBtn = document.querySelector(".container-box-component-playlistPage-controls-btn"); // shuffle ở playlist
+  const shuffleFooterBtn = document.querySelectorAll(
+    ".footer-homepage-controls-btn"
+  )[0]; // shuffle ở footer
+  const shufflePlaylistBtn = document.querySelector(
+    ".container-box-component-playlistPage-controls-btn"
+  ); // shuffle ở playlist
 
   // Repeat buttons
-  const repeatBtn = document.querySelector(".footer-homepage-controls-btn-repeat");
-  const repeatOneBtn = document.querySelector(".footer-homepage-controls-btn-repeat1");
+  const repeatBtn = document.querySelector(
+    ".footer-homepage-controls-btn-repeat"
+  );
+  const repeatOneBtn = document.querySelector(
+    ".footer-homepage-controls-btn-repeat1"
+  );
 
   // Toggle class cho cả 2 nút shuffle
   function toggleShuffleButtons() {
@@ -365,7 +376,6 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
 
 // Volume control
 const volumeIcon = document.querySelector(
@@ -699,9 +709,13 @@ document.addEventListener("DOMContentLoaded", function () {
 //   }
 // });
 const menu = document.getElementById("contextMenu");
-const buttons = document.querySelectorAll(".container-sidebar-right-waiting-list-more-btn, .playlist-more-icon");
+const buttons = document.querySelectorAll(
+  ".container-sidebar-right-waiting-list-more-btn, .playlist-more-icon"
+);
 
-const scrollContainer1 = document.querySelector(".container-sidebar-right-waiting-list");
+const scrollContainer1 = document.querySelector(
+  ".container-sidebar-right-waiting-list"
+);
 const scrollContainer2 = document.querySelector(".container-box-content");
 
 let menuTriggerElement = null;
@@ -755,8 +769,3 @@ function handleScroll() {
 
 scrollContainer1?.addEventListener("scroll", handleScroll);
 scrollContainer2?.addEventListener("scroll", handleScroll);
-
-
-
-
-

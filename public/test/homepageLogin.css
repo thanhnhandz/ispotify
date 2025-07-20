@@ -879,9 +879,10 @@
   justify-content: space-between;
   align-items: center;
   background-color: #000;
-  padding: 3px 12px;
+  padding: 0px 12px;
   color: white;
   gap: 20px;
+  height: 80px;
 }
 
 /* Bên trái */
@@ -978,9 +979,22 @@
   color: black;
   border-radius: 50%;
   width: 40px;
-  height: 4%;
+  height: 40px;
   padding: 5px;
   font-size: 16px;
+  position: relative;
+}
+.fa-play-controls {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  font-size: 20px;
+}
+.fa-pause-controls {
+  position: absolute;
+  top: 9px;
+  right: 12px;
+  font-size: 20px;
 }
 .footer-homepage-controls-fa-play:hover {
   cursor: pointer;
