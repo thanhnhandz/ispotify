@@ -1,66 +1,125 @@
-body {
-      background-color: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
+.artist-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-y: auto;
+  color: #fff;
+  font-family: sans-serif;
+}
 
-    .recommend-list {
-      width: 600px;
-    }
+.artist-modal-content {
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #121212;
+  width: 80%;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
 
-    .recommend-list h2 {
-      margin-bottom: 10px;
-    }
+.artist-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
 
-    .song-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 15px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
+.artist-stats {
+  flex: 1;
+  min-width: 250px;
+}
 
-    .song-item:hover {
-      background-color: #2a2a2a;
-    }
+.artist-stats h2 {
+  font-size: 36px;
+  margin-bottom: 5px;
+}
 
-    .song-item.active {
-      background-color: #2a2a2a;
-    }
+.artist-location-stats {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  font-size: 14px;
+}
 
-    .song-info {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex: 1;
-    }
+.artist-location-stats li {
+  margin-bottom: 15px;
+}
 
-    .song-info img {
-      width: 50px;
-      height: 50px;
-      border-radius: 4px;
-    }
+.artist-description {
+  flex: 2;
+  min-width: 300px;
+  font-size: 14px;
+  line-height: 1.6;
+}
 
-    .song-text {
-      display: flex;
-      flex-direction: column;
-    }
+.artist-poster {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
 
-    .song-title {
-      font-weight: bold;
-    }
+.artist-poster img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
 
-    .song-artist {
-      font-size: 0.9em;
-      color: #ccc;
-    }
+.artist-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-    .song-stats {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      font-size: 0.9em;
-      color: #aaa;
-    }
+.artist-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.artist-links i {
+  margin-right: 5px;
+}
+.artist-intro-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow-y: auto;
+}
+
+.modal-content {
+  background-color: #121212;
+  margin: 5% auto;
+  padding: 20px;
+  width: 60%;
+  border-radius: 10px;
+  color: #fff;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+.artist-intro-summary {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stats {
+  margin: 20px 0;
+}

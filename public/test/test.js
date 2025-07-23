@@ -1,25 +1,16 @@
-  const sortMenu = document.getElementById("sortMenu");
-  const options = sortMenu.querySelectorAll(".sort-option");
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("artistIntroModal");
+  const closeBtn = document.getElementById("closeIntroModal");
 
-  options.forEach(option => {
-    option.addEventListener("click", () => {
-      // Bỏ selected ở tất cả mục
-      options.forEach(opt => {
-        opt.classList.remove("selected");
-        const check = opt.querySelector(".checkmark");
-        if (check) check.remove(); // Xoá dấu ✔ cũ nếu có
-      });
-
-      // Gán selected cho mục được click
-      option.classList.add("selected");
-
-      // Thêm dấu ✔ nếu chưa có
-      if (!option.querySelector(".checkmark")) {
-        const checkmark = document.createElement("span");
-        checkmark.classList.add("checkmark");
-        checkmark.textContent = "✔";
-        option.appendChild(checkmark);
-      }
-    });
+  document.getElementById("artistIntroSummary").addEventListener("click", () => {
+    modal.style.display = "block";
   });
 
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+});

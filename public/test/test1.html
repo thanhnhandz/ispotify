@@ -9,90 +9,65 @@
 </head>
 
 <body>
-<div class="recommend-list">
-    <h2>Đề xuất</h2>
+<!-- Khối giới thiệu ngắn -->
+<div class="artist-intro-summary" id="artistIntroSummary">
+  <img src="your-image.jpg" alt="Ảnh nghệ sĩ" />
+  <div class="intro-text">
+    <strong>407.873 người nghe hằng tháng</strong>
+    <p>
+      Trịnh Trần Phương Tuấn (born April 12, 1997), better known by his stage name Jack,...
+    </p>
+  </div>
+</div>
 
-    <div class="song-item active">
-      <div class="song-info">
-        <img src="https://via.placeholder.com/50" alt="Đức Phúc">
-        <div class="song-text">
-          <span class="song-title">Hết Thương Cạn Nhớ</span>
-          <span class="song-artist">Đức Phúc</span>
-        </div>
-      </div>
-      <div class="song-stats">
-        <span>6.811.650</span>
-        <span>4:43</span>
-      </div>
+<!-- Modal chi tiết (ẩn ban đầu) -->
+<div class="artist-modal" id="artistIntroModal">
+  <div class="artist-modal-content">
+    <span class="artist-modal-close" id="closeIntroModal">&times;</span>
+
+    <div class="artist-stats">
+      <h2>407.873</h2>
+      <p>Người nghe Hàng tháng</p>
+
+      <ul class="artist-location-stats">
+        <li><strong>Ho Chi Minh City, VN</strong><br />173.690 người nghe</li>
+        <li><strong>Hanoi, VN</strong><br />110.350 người nghe</li>
+        <li><strong>Da Nang, VN</strong><br />18.767 người nghe</li>
+        <li><strong>Can Tho, VN</strong><br />8.906 người nghe</li>
+        <li><strong>Biên Hòa, VN</strong><br />8.609 người nghe</li>
+      </ul>
     </div>
 
-    <div class="song-item">
-      <div class="song-info">
-        <img src="https://via.placeholder.com/50" alt="Lửng Lơ">
-        <div class="song-text">
-          <span class="song-title">Lửng Lơ</span>
-          <span class="song-artist">Masew, B Ray, REDT, Ý Tiên</span>
-        </div>
-      </div>
-      <div class="song-stats">
-        <span>19.217.639</span>
-        <span>4:27</span>
-      </div>
-    </div>
+    <div class="artist-description">
+      <p>
+        Trịnh Trần Phương Tuấn (born April 12, 1997), better known by his stage name Jack,...
+        He is also the first Vietnamese artist to win an Asian Television Awards for
+        Best Music Video Act (with <strong>Hoa Hải Đường</strong>).
+      </p>
 
-    <div class="song-item">
-      <div class="song-info">
-        <img src="https://via.placeholder.com/50" alt="Đom Đóm">
-        <div class="song-text">
-          <span class="song-title">Đom Đóm</span>
-          <span class="song-artist">Jack - J97</span>
-        </div>
+      <div class="artist-poster">
+        <img src="jack-avatar.jpg" alt="Jack" />
+        <span>Đăng bởi Jack – J97</span>
       </div>
-      <div class="song-stats">
-        <span>9.626.855</span>
-        <span>5:24</span>
-      </div>
-    </div>
 
-    <div class="song-item">
-      <div class="song-info">
-        <img src="https://via.placeholder.com/50" alt="Cause I Love You">
-        <div class="song-text">
-          <span class="song-title">Cause I Love You</span>
-          <span class="song-artist">Noo Phước Thịnh</span>
-        </div>
-      </div>
-      <div class="song-stats">
-        <span>7.704.191</span>
-        <span>4:45</span>
-      </div>
-    </div>
-
-    <div class="song-item">
-      <div class="song-info">
-        <img src="https://via.placeholder.com/50" alt="Như Ngày Hôm Qua">
-        <div class="song-text">
-          <span class="song-title">Như Ngày Hôm Qua</span>
-          <span class="song-artist">Sơn Tùng M-TP</span>
-        </div>
-      </div>
-      <div class="song-stats">
-        <span>12.894.142</span>
-        <span>3:42</span>
+      <div class="artist-links">
+        <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#"><i class="fab fa-twitter"></i> X</a>
+        <a href="#"><i class="fab fa-wikipedia-w"></i> Wikipedia</a>
       </div>
     </div>
   </div>
+</div>
+
+
 
 
 
 
 
 </body>
-<script>
-  function toggleSelect(el) {
-    el.classList.toggle("container-sidebar-right-boxx-selected");
-  }
-</script>
+<script src="test.js"></script>
 
 
 </html>
