@@ -224,7 +224,6 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         audio.pause();
       }
-
       // Update both control buttons
       icon.classList.toggle("fa-pause", isPlaying);
       icon.classList.toggle("fa-play", !isPlaying);
@@ -235,8 +234,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Sync UI when play triggered from other button
     audio.addEventListener("play", () => {
-      icon.classList.add("fa-pause");
-      icon.classList.remove("fa-play");
+      icon.classList.add("fa-pause", "fa-pause-controls");
+      icon.classList.remove("fa-play", "fa-play-controls");
 
       if (playlistIconPlay && playlistIconPause) {
         playlistIconPlay.style.display = "none";
@@ -245,8 +244,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     audio.addEventListener("pause", () => {
-      icon.classList.remove("fa-pause");
-      icon.classList.add("fa-play");
+      icon.classList.remove("fa-pause", "fa-pause-controls");
+      icon.classList.add("fa-play" , "fa-play-controls");
       if (playlistIconPlay && playlistIconPause) {
         playlistIconPlay.style.display = "inline";
         playlistIconPause.style.display = "none";
@@ -441,7 +440,7 @@ if (playlistItems.length) {
 function toggleSelect(el) {
   el.classList.toggle("container-sidebar-right-boxx-selected");
 }
-const plusIcon = document.querySelector(".fa-square-plus");
+const plusIcon = document.querySelector(".fa-square-plus-icon");
 const popup = document.querySelector(".container-sidebar-right-boxx-popup");
 const cancelBtn = document.querySelector(
   ".container-sidebar-right-boxx-cancel"
@@ -672,45 +671,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// const menu = document.getElementById("contextMenu");
-// let currentButton = null;
-
-// const allButtons = document.querySelectorAll(
-//   ".container-sidebar-right-waiting-list-more-btn, .container-box-component-playlistPage-btn-icon"
-// );
-
-// allButtons.forEach((btn) => {
-//   btn.addEventListener("click", (e) => {
-//     e.stopPropagation();
-//     currentButton = btn;
-//     showMenuAtButton(currentButton);
-//   });
-// });
-
-// function showMenuAtButton(btn) {
-//   const rect = btn.getBoundingClientRect();
-//   menu.style.position = "absolute";
-//   menu.style.top = rect.bottom + window.scrollY + "px";
-//   menu.style.left = rect.left + window.scrollX - 300 + "px";
-//   menu.style.display = "block";
-// }
-
-// document.addEventListener("click", (e) => {
-//   if (!menu.contains(e.target)) {
-//     menu.style.display = "none";
-//     currentButton = null;
-//   }
-// });
-
-// // ✅ Tính lại khi cuộn
-// window.addEventListener("scroll", () => {
-//   if (menu.style.display === "block" && currentButton) {
-//     showMenuAtButton(currentButton);
-//   }
-// });
 const menu = document.getElementById("contextMenu");
 const buttons = document.querySelectorAll(
-  ".container-sidebar-right-waiting-list-more-btn, .playlist-more-icon"
+  ".container-sidebar-right-waiting-list-more-btn, .playlist-more-icon, .container-box-component-songDetail-propose-item-box3-time-ellipsis"
 );
 
 const scrollContainer1 = document.querySelector(

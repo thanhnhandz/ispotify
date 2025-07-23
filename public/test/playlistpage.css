@@ -1,11 +1,13 @@
 .container-box-component-playlistPage {
-  background: linear-gradient(to bottom, #1e1e1e, #121212);
+
   padding: 30px;
   color: white;
   font-family: sans-serif;
   padding-bottom: 300px;
 }
-
+.container-box-component-playlistPage1 {
+  background: linear-gradient(to bottom, #1e1e1e, #121212);
+}
 .container-box-component-playlistPage-header {
   display: flex;
   align-items: center;
