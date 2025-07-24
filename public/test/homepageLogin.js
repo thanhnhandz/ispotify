@@ -440,7 +440,7 @@ if (playlistItems.length) {
 function toggleSelect(el) {
   el.classList.toggle("container-sidebar-right-boxx-selected");
 }
-const plusIcon = document.querySelector(".fa-square-plus-icon");
+const plusIcon = document.querySelector(".fa-square-plus");
 const popup = document.querySelector(".container-sidebar-right-boxx-popup");
 const cancelBtn = document.querySelector(
   ".container-sidebar-right-boxx-cancel"

@@ -1,0 +1,132 @@
+/* container-box-component--header */
+.container-box-component--header-searchPage {
+  padding: 20px;
+}
+.container-box-component--header--div-searchPage {
+  margin-bottom: 20px;
+}
+.container-box-component--header--text-searchPage {
+  font-size: 24px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.container-box-component--header--text-searchPage-title {
+    display: block;
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+.container-box-component--header--showAll-searchPage {
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.container-box-component--header--showAll-searchPage:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* List nhạc */
+.container-box-component--header--list-searchPage {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.container-box-component--header--list-searchPage::-webkit-scrollbar {
+  display: none;
+}
+.container-box-component--header--item-searchPage {
+  width: 180px;
+  background-color: #181818;
+  border-radius: 8px;
+  padding: 16px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.container-box-component--header--item-searchPage:hover {
+  background-color: #282828;
+}
+
+.song-thumbnail-searchPage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.container-box-component--header--item--img-searchPage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+/* Nút play */
+.container-box-component--header--item--icon-play-searchPage {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+  background-color: #1ed760;
+  color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+/* Hover hiện nút play */
+.container-box-component--header--item-searchPage:hover
+  .container-box-component--header--item--icon-play-searchPage {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+.container-box-component--header--item--nameSong-searchPage {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container-box-component--header--item--artist-searchPage {
+  display: block;
+  font-size: 13px;
+  color: #b3b3b3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.slider-container-searchPage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.img-avatar-circle-searchPage {
+  border-radius: 50%;
+}

@@ -1,3 +1,10 @@
+
+@font-face {
+  font-family: 'GothamBook';
+  src: url('assets/font/Gotham-XLight.otf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 html,
 body {
   background-color: #000;

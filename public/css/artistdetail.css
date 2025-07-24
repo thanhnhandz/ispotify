@@ -1,0 +1,305 @@
+.container-box-artistdetail-header {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-image: url("Making-my-way-son-tung-mtp-2.png"); /* ảnh nền */
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.container-box-artistdetail-header-overlay {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 50%);
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.container-box-artistdetail-header-info {
+  color: white;
+}
+
+.container-box-artistdetail-verified-badge {
+  font-size: 14px;
+  color: #a0d4ff;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.container-box-artistdetail-verified-badge i {
+  margin-right: 5px;
+}
+.container-box-artistdetail-name {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.container-box-artistdetail-subinfo {
+  font-size: 16px;
+  color: #ddd;
+  margin-top: 6px;
+}
+
+.container-box-content-artistdetailPage {
+  padding: 0;
+}
+.container-box-artistdetailPage-control {
+  padding: 0 20px;
+  margin: 20px 0;
+}
+.container-box-artistdetailPage-follow-btn.container-box-artistdetailPage-follow-btn {
+  padding: 6px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  font-size: 12px;
+}
+.container-box-artistdetailPage-follow-btn:hover {
+  transform: scale(1.04);
+}
+.container-box-artistdetailPage-item.hidden {
+  display: none;
+}
+#toggleListBtn-artistPage {
+  background-color: transparent;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  margin-top: 10px;
+}
+#toggleListBtn-artistPage:hover {
+  transform: scale(1.04);
+}
+.container-box-artistdetailPage-item.active .container-box-component-songDetail-propose-item-box1-info-top, .container-box-artistdetailPage-item.active .container-box-component-songDetail-propose-item-box1-info-name {
+  color:#1cc959;
+}
+/* Thong tin tac gia */
+.container-box-content-artistdetailPage-intro {
+  padding: 0 20px;
+}
+.container-box-content-artistdetailPage-intro-summary {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #181818;
+  max-width: 900px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.container-box-content-artistdetailPage-intro-summary img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.container-box-content-artistdetailPage-intro-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  color: #fff;
+}
+
+.container-box-content-artistdetailPage-strong {
+  display: block;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.container-box-content-artistdetailPage-info-text {
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.5;
+  display: -webkit-box; /* Giữ đúng thứ tự */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* model tt artirst */
+.container-box-content-artistdetailPage-artist-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 9999;
+    visibility: hidden;   /* Ẩn mặc định */
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.container-box-content-artistdetailPage-intro-headerr {
+  margin-bottom: 10px;
+}
+/* Khi thêm class "show" sẽ hiện ra */
+.container-box-content-artistdetailPage-artist-modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+.container-box-content-artistdetailPage-artist-wrapper {
+    width: 700px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000;
+    border-radius: 12px;
+    overflow-y: auto;
+    scrollbar-width: none;         /* Firefox */
+    -ms-overflow-style: none;      /* IE/Edge */
+}
+
+/* Ẩn thanh cuộn với Chrome, Edge, Safari */
+.container-box-content-artistdetailPage-artist-wrapper::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Khi rê chuột vào thì hiện thanh cuộn */
+.container-box-content-artistdetailPage-artist-wrapper:hover::-webkit-scrollbar {
+    width: 8px;
+}
+.container-box-content-artistdetailPage-artist-avatar {
+  position: relative;
+  width: 100%;
+  max-width: 700px; 
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.container-box-content-artistdetailPage-artist-avatar-img {
+  width: 100%;      
+  height: auto;        
+  display: block;    
+  object-fit: cover; 
+}
+
+.container-box-content-artistdetailPage-artist-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+
+}
+.container-box-content-artistdetailPage-artist-wrapper::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 8px;
+}
+.container-box-content-artistdetailPage-artist-modal-content {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 20px 60px 20px;
+    color: white;
+    width: 100%;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+.container-box-content-artistdetailPage-artist-stats {
+    flex: 0 0 150px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.container-box-content-artistdetailPage-artist-stats-number {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+}
+
+.container-box-content-artistdetailPage-artist-stats-label {
+    margin-bottom:20px;
+    color: #808080;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.container-box-content-artistdetailPage-artist-location-stats {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.container-box-content-artistdetailPage-artist-location-item {
+    font-size: 12px;
+    color: #808080;
+}
+
+.container-box-content-artistdetailPage-artist-location-city {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.container-box-content-artistdetailPage-artist-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.container-box-content-artistdetailPage-artist-link {
+    text-decoration: none;
+    color: #1db954;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.container-box-content-artistdetailPage-artist-link:hover {
+    opacity: 0.7;
+}
+
+.container-box-content-artistdetailPage-artist-description {
+    flex: 1;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #eaeaea;
+}
+
+.container-box-content-artistdetailPage-artist-description-text {
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+
+.container-box-content-artistdetailPage-artist-poster {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.container-box-content-artistdetailPage-artist-poster-img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.container-box-content-artistdetailPage-artist-poster-author {
+    font-size: 14px;
+    color: #cfcfcf;
+}

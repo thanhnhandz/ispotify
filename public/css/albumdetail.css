@@ -1,0 +1,20 @@
+.container-box-component-albumdetail-header {
+  background: linear-gradient(to top, #212121, #c13a42); /* đỏ đậm -> đỏ nhạt */
+  color: white;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px 8px 0 0;
+}
+.container-box-component-albumdetail-content1 {
+    padding: 0;
+}
+.container-box-component-albumPage {
+    padding: 0;
+}
+.container-box-component-albumPage-controls{
+    padding: 0 20px;
+}
+.container-box-component-albumPage-table {
+    padding: 0 20px;
+}
