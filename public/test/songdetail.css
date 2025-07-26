@@ -293,8 +293,8 @@
   padding: 6px 12px;
 }
 .container-box-component-songDetail-box2-itemArtist:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 
   cursor: pointer;
 }
@@ -305,13 +305,13 @@
   object-fit: cover;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
-.container-box-component-songDetail-artist-name{
-    display: flex;
-    flex-direction: column;
-    color: #aaa;
+.container-box-component-songDetail-artist-name {
+  display: flex;
+  flex-direction: column;
+  color: #aaa;
 }
 .container-box-component-songDetail-artist-name:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .container-box-component-songDetail-propose {
@@ -355,8 +355,6 @@
   background-color: #2a2a2a;
 }
 
-
-
 /* BOX 1 (Ảnh + tên + nghệ sĩ) */
 .container-box-component-songDetail-propose-item-box1 {
   display: flex;
@@ -384,13 +382,16 @@
   font-size: 12px;
   color: #bbb;
 }
-.container-box-component-songDetail-propose-item-box1-info-artist:hover{
+.container-box-component-songDetail-propose-item-box1-info-artist:hover {
   text-decoration: underline;
 }
 .container-box-component-songDetail-propose-item-box1-info-top {
   font-size: 16px;
-  margin-right: 10px;
   color: #bbb;
+  padding-right: 20px;
+  display: inline-block;
+  width: 35px; /* hoặc min-width nếu cần linh hoạt hơn */
+  text-align: right;
 }
 /* BOX 2 (lượt nghe) */
 .container-box-component-songDetail-propose-item-box2 {
@@ -418,7 +419,9 @@
 }
 
 /* Khi hover vào li hoặc là dòng đầu tiên */
-.container-box-component-songDetail-propose-item:hover .container-box-component-songDetail-propose-item-box3 i {
+.container-box-component-songDetail-propose-item:hover
+  .container-box-component-songDetail-propose-item-box3
+  i {
   visibility: visible;
   opacity: 1;
 }
@@ -456,7 +459,8 @@
 }
 
 /* Khi hover vào li: hiện icon và làm mờ ảnh */
-.container-box-component-songDetail-propose-item:hover .container-box-component-songDetail-propose-item-box1-play-icon {
+.container-box-component-songDetail-propose-item:hover
+  .container-box-component-songDetail-propose-item-box1-play-icon {
   opacity: 1;
 }
 

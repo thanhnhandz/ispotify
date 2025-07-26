@@ -32,5 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
   popupMenu.addEventListener("click", (e) => {
     e.stopPropagation();
   });
+  // Ẩn popup khi click vào bất kỳ <li> trong menu
+  const menuItems = popupMenu.querySelectorAll("li");
+  menuItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      popupMenu.style.display = "none";
+    });
+  });
 });
 

@@ -1,0 +1,180 @@
+.container-box-component-userPage-header {
+  padding: 20px;
+  background: linear-gradient(to bottom, #2b2b2b, #000000);
+}
+
+.container-box-component-userPage-thumb {
+  border-radius: 50%;
+}
+.container-box-component-userPage-public {
+  font-size: 16px;
+}
+.container-box-component-userPage-title {
+  font-size: 70px;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+}
+.container-box-component-userPage-btn-icon {
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+.container-box-component-userPage-btn-icon:hover {
+  transform: scale(1.2);
+}
+
+.userPage-popup-menu {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  background-color: #282828;
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  width: 300px;
+}
+
+.userPage-popup-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+}
+
+.userPage-popup-menu li {
+  font-size: 14px;
+  padding: 10px 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+/* overlay */
+.userPage-popup-menu li:hover {
+  background-color: #3e3e3e;
+}
+
+.container-box-userPage-overlay {
+  display: none; /* sẽ được hiển thị khi openModal() */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+.container-box-userPage-overlay.active {
+  display: flex;
+}
+.container-box-userPage-modal {
+  background: #282828;
+  width: 420px;
+  margin: 100px auto;
+  padding: 24px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.container-box-userPage-modal-header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.container-box-userPage-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.container-box-userPage-avatar {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  background: #3a3a3a;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+/* overlay được ẩn đi lúc đầu */
+.avatar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.container-box-userPage-avatar:hover .avatar-overlay {
+  opacity: 1;
+}
+
+.avatar-overlay i.fa-pen {
+  font-size: 24px;
+  color: white;
+  margin: 4px 0;
+}
+
+.avatar-action {
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.avatar-action:hover {
+  text-decoration: underline;
+}
+
+.container-box-userPage-avatar i {
+  font-size: 40px;
+  color: #bbb;
+}
+
+.container-box-userPage-modal input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #3a3a3a;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.container-box-userPage-modal button {
+  background: white;
+  color: black;
+  font-weight: bold;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.container-box-userPage-modal p {
+  font-size: 12px;
+  color: #b3b3b3;
+  margin-top: 20px;
+}
