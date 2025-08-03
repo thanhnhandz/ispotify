@@ -29,5 +29,8 @@ router.get('/song', (req, res) => {
 router.get('/search', (req, res) => {
   res.render('searchpage', { title: 'Tìm kiếm' });
 });
+router.get('/users', (req, res) => {
+  res.render('userdetail', { title: 'Hồ sơ' });
+});
 
 module.exports = router;

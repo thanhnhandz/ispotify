@@ -1,0 +1,106 @@
+/* ===== ASongpage Styles ===== */
+
+.ASongpage-container {
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 1100px;
+  margin: auto;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ASongpage-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+/* Toolbar */
+.ASongpage-toolbar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.ASongpage-search,
+.ASongpage-filter {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  flex: 1;
+  max-width: 300px;
+}
+
+/* Table */
+.ASongpage-table-wrapper {
+  overflow-x: auto;
+}
+
+.ASongpage-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ASongpage-table th,
+.ASongpage-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.ASongpage-table th {
+  background-color: #f0f0f0;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #555;
+}
+
+/* Status styles */
+.ASongpage-status-published {
+  background-color: #e6f9ec;
+  color: #2e7d32;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.ASongpage-status-pending {
+  background-color: #fffbe5;
+  color: #b58900;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.ASongpage-status-removed {
+  background-color: #ffe6e6;
+  color: #c62828;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+/* Actions */
+.ASongpage-table td.ASongpage-actions {
+  vertical-align: middle;
+}
+
+.ASongpage-actions i {
+  width: 15px;
+  margin-right: 10px;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s ease;
+}
+
+.ASongpage-actions i:hover {
+  color: #007bff;
+}
+.ASongpage-actions .checkActive {
+  color: #007bff;
+}

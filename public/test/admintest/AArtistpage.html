@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Adashboard.css">
+    <link rel="stylesheet" href="AChangePass.css">
+    <link rel="stylesheet" href="ACreateNewAdmin.css">
+    <link rel="stylesheet" href="AProfile.css">
+    <link rel="stylesheet" href="AUserpage.css">
+    <link rel="stylesheet" href="AArtistpage.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="assets/font/fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="AHomepage-box AHomepage-box-color">
+        <div class="box-sidebar">
+            <h1 class="box-sidebar--header">
+                <i class="fa-solid fa-network-wired"></i> Ispotify Admin
+            </h1>
+            <ul class="box-sidebar--list">
+                <li class="box-sidebar--item">
+                    <a href="/admin/dashboard" class="box-sidebar--item-link">
+                        <i class="fa-solid fa-gauge"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/users" class="box-sidebar--item-link">
+                        <i class="fa-solid fa-user"></i>
+                        Users
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/products" class="box-sidebar--item-link">
+                        <i class="fas fa-microphone-alt"></i>
+                        Artists
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/categories" class="box-sidebar--item-link">
+                        <i class="fas fa-music"></i>
+                        Music Manager
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/reports" class="box-sidebar--item-link">
+                        <i class="fas fa-file-alt"></i>
+                        Reports
+                    </a>
+                </li>
+            </ul>
+            <h3 class="box-sidebar-setAccout--header">Account</h3>
+            <ul class="box-sidebar--list">
+                <li class="box-sidebar--item">
+                    <a href="/admin/profile" class="box-sidebar--item-link">
+                        Profile
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/create-admin" class="box-sidebar--item-link">
+                        Create new admin
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <form action="/logout" method="POST">
+                        <button type="submit" class="box-sidebar--item--button">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div class="box-content">
+            <div id="content-container">
+                <div class="AArtistpage-container">
+                    <h1 class="AArtistpage-title">🎤 Artists Management</h1>
+
+                    <!-- Search & Filter -->
+                    <div class="AArtistpage-toolbar">
+                        <input type="text" placeholder="Search artist..." class="AArtistpage-search" />
+                        <select class="AArtistpage-filter">
+                            <option value="">All Statuses</option>
+                            <option value="active">Active</option>
+                            <option value="banned">Banned</option>
+                        </select>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="AArtistpage-table-wrapper">
+                        <table class="AArtistpage-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Artist Name</th>
+                                    <th>Email</th>
+                                    <th>Follows</th>
+                                    <th>Albums</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Drake</td>
+                                    <td>drake@spotify.com</td>
+                                    <td>1.000.000</td>
+                                    <td>12</td>
+                                    <td><span class="AArtistpage-status-active">Active</span></td>
+                                    <td class="AArtistpage-actions">
+                                        <i class="fas fa-user-slash" title="Ban"></i>
+                                        <i class="fas fa-trash-alt" title="Delete"></i>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Taylor Swift</td>
+                                    <td>taylor@spotify.com</td>
+                                    <td>123.456</td>
+                                    <td>9</td>
+                                    <td><span class="pageUser-status-banned">Banned</span></td>
+                                    <td class="AArtistpage-actions">
+                                        <i class="fas fa-unlock" title="Unban"></i>
+                                        <i class="fas fa-trash-alt" title="Delete"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

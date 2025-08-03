@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Adashboard.css">
+    <link rel="stylesheet" href="AAddProduct.css">
+    <link rel="stylesheet" href="ACategories.css">
+    <link rel="stylesheet" href="AChangePass.css">
+    <link rel="stylesheet" href="AChangePass.css">
+    <link rel="stylesheet" href="ACreateNewAdmin.css">
+    <link rel="stylesheet" href="Adetail.css">
+    <link rel="stylesheet" href="AOrder.css">
+    <link rel="stylesheet" href="AOrderDetail.css">
+    <link rel="stylesheet" href="AProduct.css">
+    <link rel="stylesheet" href="AProfile.css">
+    <link rel="stylesheet" href="AReports.css">
+    <link rel="stylesheet" href="AUserpage.css">
+    <link rel="stylesheet" href="AUserDetail.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="assets/font/fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="AHomepage-box AHomepage-box-color">
+        <div class="box-sidebar">
+            <h1 class="box-sidebar--header">
+                <i class="fa-solid fa-network-wired"></i> Ispotify Admin
+            </h1>
+            <ul class="box-sidebar--list">
+                <li class="box-sidebar--item">
+                    <a href="/admin/dashboard" class="box-sidebar--item-link">
+                        <i class="fa-solid fa-gauge"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/users" class="box-sidebar--item-link">
+                        <i class="fa-solid fa-user"></i>
+                        Users
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/products" class="box-sidebar--item-link">
+                        <i class="fas fa-microphone-alt"></i>
+                        Artists
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/categories" class="box-sidebar--item-link">
+                        <i class="fas fa-music"></i>
+                        Music Manager
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/reports" class="box-sidebar--item-link">
+                        <i class="fas fa-file-alt"></i>
+                        Reports
+                    </a>
+                </li>
+            </ul>
+            <h3 class="box-sidebar-setAccout--header">Account</h3>
+            <ul class="box-sidebar--list">
+                <li class="box-sidebar--item">
+                    <a href="/admin/profile" class="box-sidebar--item-link">
+                        Profile
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/create-admin" class="box-sidebar--item-link">
+                        Create new admin
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <form action="/logout" method="POST">
+                        <button type="submit" class="box-sidebar--item--button">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div class="box-content">
+            <div id="content-container">
+                <div class="pageUser-container">
+                    <h1 class="pageUser-title">👤 Users Management</h1>
+
+                    <!-- Search and Filter -->
+                    <div class="pageUser-toolbar">
+                        <input type="text" placeholder="Search users..." class="pageUser-search" />
+                        <select class="pageUser-filter">
+                            <option value="">All Statuses</option>
+                            <option value="active">Active</option>
+                            <option value="banned">Banned</option>
+                            <option value="premium">Premium</option>
+                            <option value="free">Free</option>
+                        </select>
+                    </div>
+
+                    <!-- Users Table -->
+                    <div class="pageUser-table-wrapper">
+                        <table class="pageUser-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Plan</th>
+                                    <th>Status</th>
+                                    <th>Follows</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Alice Nguyen</td>
+                                    <td>alice@example.com</td>
+                                    <td>Premium</td>
+                                    <td><span class="pageUser-status-active">Active</span></td>
+                                    <td>5,120</td>
+                                    <td class="pageUser-actions">
+                                        <i class="fas fa-user-slash" title="Ban"></i>
+                                        <i class="fas fa-trash-alt" title="Delete"></i>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>John Tran</td>
+                                    <td>john@example.com</td>
+                                    <td>Free</td>
+                                    <td><span class="pageUser-status-banned">Banned</span></td>
+                                    <td>320</td>
+                                    <td class="pageUser-actions">
+                                        <i class="fas fa-unlock" title="Unban"></i>
+                                        <i class="fas fa-trash-alt" title="Delete"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
