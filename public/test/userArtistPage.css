@@ -1,0 +1,676 @@
+.menuSettingSong-artist-user {
+  position: absolute;
+  background-color: #222;
+  border: 1px solid #444;
+  border-radius: 8px;
+  width: 200px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  padding: 10px 0;
+}
+
+.menuSettingSong-artist-user-item {
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+    color: #ccc;
+}
+
+.menuSettingSong-artist-user-item:hover {
+  background-color: #333;
+}
+
+.menuSettingSong-artist-user-item i {
+  margin-right: 8px;
+  color: #ccc;
+}
+
+/* Album popup vẫn giữ CSS cũ */
+
+.menuSettingSong-artist-user-item.hasAlbumBox {
+  position: relative; /* rất quan trọng để absolute nội bộ bám đúng */
+}
+
+.menuSettingSong-artist-user-albumSelect {
+  position: absolute;
+  top: -200%;
+  left: -110%; /* xuất hiện bên phải */
+  margin-left: 10px;
+  background-color: #1e1e1e;
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 12px;
+  width: 200px;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+.menuSettingSong-artist-user-albumSelect h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.menuSettingSong-artist-user-albumSelect ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 10px;
+}
+
+.menuSettingSong-artist-user-albumSelect li {
+  margin-bottom: 6px;
+}
+
+.menuSettingSong-artist-user-albumSelect input[type="radio"] {
+  margin-right: 6px;
+}
+
+.menuSettingSong-artist-user-albumSelect button {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #666;
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+}
+
+.menuSettingSong-artist-user-albumSelect button:hover {
+  background-color: #444;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container-box-component-albumList-propose {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  padding: 20px;
+}
+
+.container-box-component-albumList-propose-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.container-box-component-albumList-propose-subtitle {
+  font-size: 13px;
+  color: #999;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.container-box-component-albumList-propose-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Cho li không còn là flex toàn bộ */
+.container-box-component-albumList-propose-item {
+  display: block;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+/* Dùng flex chỉ cho phần thông tin chính */
+.album-main-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Hover hiệu ứng */
+.container-box-component-albumList-propose-item:hover {
+  cursor: pointer;
+  background-color: #2a2a2a;
+}
+
+/* BOX 1 (Ảnh + tên + nghệ sĩ) */
+.container-box-component-albumList-propose-item-box1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 400px;
+}
+
+.container-box-component-albumList-propose-item-box1-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.container-box-component-albumList-propose-item-box1-info-name {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.container-box-component-albumList-propose-item-box1-info-name:hover {
+  text-decoration: underline;
+}
+
+.container-box-component-albumList-propose-item-box1-info-artist {
+  font-size: 12px;
+  color: #bbb;
+}
+
+.container-box-component-albumList-propose-item-box1-info-artist:hover {
+  text-decoration: underline;
+}
+
+.container-box-component-albumList-propose-item-box1-info-top {
+  font-size: 16px;
+  color: #bbb;
+  padding-right: 20px;
+  display: inline-block;
+  width: 35px;
+  text-align: right;
+}
+
+/* BOX 2 (lượt nghe) */
+.container-box-component-albumList-propose-item-box2 {
+  font-size: 13px;
+  color: #ccc;
+  margin: 0 15px;
+  white-space: nowrap;
+}
+
+/* BOX 3 (icon + thời gian) */
+.container-box-component-albumList-propose-item-box3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #aaa;
+  margin-left: auto;
+}
+
+/* Icon chỉ hiện khi hover */
+.container-box-component-albumList-propose-item-box3 i {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.container-box-component-albumList-propose-item:hover
+  .container-box-component-albumList-propose-item-box3
+  i {
+  visibility: visible;
+  opacity: 1;
+}
+
+.container-box-component-albumList-propose-item-box3 i:hover {
+  color: #fff;
+}
+
+.img-wrapper {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  display: block;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.container-box-component-albumList-propose-item-box1-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.container-box-component-albumList-propose-item:hover
+  .container-box-component-albumList-propose-item-box1-play-icon {
+  opacity: 1;
+}
+
+.container-box-component-albumList-propose-item:hover .img-wrapper img {
+  filter: brightness(0.5);
+}
+
+.container-box-footer-albumList {
+  margin-top: 300px;
+}
+#toggleListBtn-albumList {
+  background-color: transparent;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  margin-top: 10px;
+}
+#toggleListBtn-albumList:hover {
+  transform: scale(1.04);
+}
+.container-box-component-headerr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container-box-component-headerr-btn{
+    background-color: transparent;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 13px;
+}
+.container-box-component-headerr-btn:hover {
+  transform: scale(1.04);
+}
+
+.box-addNewSong-form {
+  background-color: #121212;
+  color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  font-family: 'Segoe UI', sans-serif;
+  border: 1px solid #282828;
+}
+.box-addNewSong-form {
+  /* WebKit (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #ccc, #888);
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #ccc;
+  }
+}
+.box-addNewSong-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.box-addNewSong-label {
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #b3b3b3;
+  font-weight: 500;
+}
+
+.box-addNewSong-input {
+  width: 100%;
+  padding: 10px 14px;
+  background-color: #2a2a2a;
+  border: 1px solid #3e3e3e;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+  margin-bottom: 10px;
+}
+
+.box-addNewSong-input:focus {
+  border-color: #1db954;
+  outline: none;
+}
+
+.box-addNewSong-authors {
+  margin-top: 10px;
+}
+
+.box-addNewSong-button {
+  background-color: transparent;
+  border: 1px solid #b3b3b3;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.box-addNewSong-button:hover {
+  background-color: #1db954;
+  color: #000000;
+  border-color: #1db954;
+}
+
+.box-addNewSong-submit {
+  width: 100%;
+  margin-top: 25px;
+  font-weight: 600;
+  background-color: #1db954;
+  border: none;
+  color: #000;
+  padding: 10px 16px;
+  border-radius: 24px;
+}
+
+.box-addNewSong-submit:hover {
+  background-color: #1ed760;
+}
+
+.box-addNewSong-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='white' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+  padding-right: 30px;
+}
+
+.box-addNewSong-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.box-addNewSong-close:hover {
+  color: #fff;
+}
+
+.box-addNewSong-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none; /* Ẩn ban đầu */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.box-addNewSong-form {
+  position: relative;
+  background-color: #121212;
+  padding: 30px;
+  border-radius: 12px;
+  width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.box-addNewSong-author-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.box-addNewSong-remove-author {
+  background-color: transparent;
+  color: #ff5c5c;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 6px;
+  transition: color 0.2s ease;
+}
+
+.box-addNewSong-remove-author:hover {
+  color: #fff;
+}
+.album-song-list {
+  margin-top: 12px;
+  margin-left: 48px; /* lùi vào để phân cấp rõ với album */
+  padding-left: 16px;
+  list-style: none;
+  border-left: 2px solid #333;
+  font-size: 14px;
+  color: #ccc;
+  animation: fadeIn 0.2s ease-in;
+  display: none;
+}
+
+.album-song-item {
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.album-song-item::before {
+  content: "🎵"; /* icon bài hát nhỏ */
+  position: absolute;
+  left: -24px;
+  font-size: 12px;
+  color: #666;
+}
+
+.album-song-item:hover {
+  color: #fff;
+  text-decoration: underline;
+  color: #1db954;
+}
+.box-addNewAlbum-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.box-addNewAlbum-form {
+  position: relative;
+  background-color: #121212;
+  color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  font-family: 'Segoe UI', sans-serif;
+  border: 1px solid #282828;
+}
+
+.box-addNewAlbum-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.box-addNewAlbum-label {
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #b3b3b3;
+  font-weight: 500;
+}
+
+.box-addNewAlbum-input {
+  width: 100%;
+  padding: 10px 14px;
+  background-color: #2a2a2a;
+  border: 1px solid #3e3e3e;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.box-addNewAlbum-songList label {
+  display: block;
+  margin: 8px 0;
+  font-size: 14px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.box-addNewAlbum-songList input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.box-addNewAlbum-button {
+  background-color: #1db954;
+  border: none;
+  color: #000;
+  padding: 10px 16px;
+  border-radius: 24px;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.box-addNewAlbum-button:hover {
+  background-color: #1ed760;
+}
+
+.box-addNewAlbum-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.box-addNewAlbum-close:hover {
+  color: #fff;
+}
+
+.menuSettingAlbum-artist-user {
+  position: absolute;
+  background-color: #222;
+  border: 1px solid #444;
+  border-radius: 8px;
+  width: 200px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  padding: 10px 0;
+}
+
+.menuSettingAlbum-artist-user-item {
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #ccc;
+}
+
+.menuSettingAlbum-artist-user-item:hover {
+  background-color: #333;
+}
+
+.menuSettingAlbum-artist-user-item i {
+  margin-right: 8px;
+  color: #ccc;
+}
+
+/* Album popup giữ cấu trúc cũ */
+
+.menuSettingAlbum-artist-user-item.hasAlbumBox {
+  position: relative; /* rất quan trọng để absolute nội bộ bám đúng */
+}
+
+.menuSettingAlbum-artist-user-albumSelect {
+  position: absolute;
+  top: -200%;
+  left: -110%; /* xuất hiện bên phải */
+  margin-left: 10px;
+  background-color: #1e1e1e;
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 12px;
+  width: 200px;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.menuSettingAlbum-artist-user-albumSelect h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.menuSettingAlbum-artist-user-albumSelect ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 10px;
+}
+
+.menuSettingAlbum-artist-user-albumSelect li {
+  margin-bottom: 6px;
+}
+
+.menuSettingAlbum-artist-user-albumSelect input[type="radio"] {
+  margin-right: 6px;
+}
+
+.menuSettingAlbum-artist-user-albumSelect button {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #666;
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+}
+
+.menuSettingAlbum-artist-user-albumSelect button:hover {
+  background-color: #444;
+}
+
+.quantity-song:hover {
+  text-decoration: underline;
+}
