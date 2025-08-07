@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Adashboard.css">
+    <link rel="stylesheet" href="AAddProduct.css">
+    <link rel="stylesheet" href="ACategories.css">
+    <link rel="stylesheet" href="AChangePass.css">
+    <link rel="stylesheet" href="AChangePass.css">
+    <link rel="stylesheet" href="ACreateNewAdmin.css">
+    <link rel="stylesheet" href="Adetail.css">
+    <link rel="stylesheet" href="AOrder.css">
+    <link rel="stylesheet" href="AOrderDetail.css">
+    <link rel="stylesheet" href="AProduct.css">
+    <link rel="stylesheet" href="AProfile.css">
+    <link rel="stylesheet" href="AReports.css">
+    <link rel="stylesheet" href="AUser.css">
+    <link rel="stylesheet" href="AUserDetail.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="ASongpage.css">
+    <link rel="stylesheet" href="AReportpage.css">
+    <link rel="stylesheet" href="AProfile.css">
+    <link rel="stylesheet" href="ACreateNewAdmin.css">
+
+    <link rel="stylesheet" href="assets/font/fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="AHomepage-box AHomepage-box-color">
+        <div class="box-sidebar">
+            <h1 class="box-sidebar--header">
+                <i class="fa-solid fa-network-wired"></i> Ispotify Admin
+            </h1>
+            <ul class="box-sidebar--list">
+                <li class="box-sidebar--item">
+                    <a href="/admin/dashboard" class="box-sidebar--item-link">
+                        <i class="fa-solid fa-gauge"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/users" class="box-sidebar--item-link">
+                        <i class="fa-solid fa-user"></i>
+                        Users
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/products" class="box-sidebar--item-link">
+                        <i class="fas fa-microphone-alt"></i>
+                        Artists
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/categories" class="box-sidebar--item-link">
+                        <i class="fas fa-music"></i>
+                        Music Manager
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/reports" class="box-sidebar--item-link">
+                        <i class="fas fa-file-alt"></i>
+                        Reports
+                    </a>
+                </li>
+            </ul>
+            <h3 class="box-sidebar-setAccout--header">Account</h3>
+            <ul class="box-sidebar--list">
+                <li class="box-sidebar--item">
+                    <a href="/admin/profile" class="box-sidebar--item-link">
+                        Profile
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <a href="/admin/create-admin" class="box-sidebar--item-link">
+                        Create new admin
+                    </a>
+                </li>
+                <li class="box-sidebar--item">
+                    <form action="/logout" method="POST">
+                        <button type="submit" class="box-sidebar--item--button">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div class="box-content">
+            <div class="box-content-createAdmin">
+                <h1 class="box-content-createAdmin--header">Create admin</h1>
+                <div id="message"></div>
+                <form id="createAdminForm">
+                    <div class="box-content-createAdmin-form">
+                        <input type="email" name="email" required>
+                        <h3 class="box-content-createAdmin-form--header">Email</h3>
+                    </div>
+                    <div class="box-content-createAdmin-form">
+                        <input type="password" name="password" required>
+                        <h3 class="box-content-createAdmin-form--header">Password</h3>
+                    </div>
+                    <div class="box-content-createAdmin-form">
+                        <input type="password" name="confirmPassword" required>
+                        <h3 class="box-content-createAdmin-form--header">Confirm Password</h3>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="box-content-createAdmin-button-change">CREATE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+</body>
+
+<script src="AReportpage.js"></script>
+
+</html>
