@@ -3,11 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('homepageNoLogin', { title: 'Trang chủ chưa đăng nhập' });
-});
-
-router.get('/homepage', (req, res) => {
-  res.render('homepageLogin', { title: 'Trang chủ đã đăng nhập' });
+  res.render('homepage', { title: 'Trang chủ chưa đăng nhập' });
 });
 
 router.get('/playlist', (req, res) => {
@@ -32,5 +28,17 @@ router.get('/search', (req, res) => {
 router.get('/users', (req, res) => {
   res.render('userdetail', { title: 'Hồ sơ' });
 });
+router.get('/login', (req, res) => {
+  res.render('login', {
+    title: 'Đăng nhập',
+    layout: false // KHÔNG chèn vào layout mặc định
+  });
+});
 
+router.get('/register', (req, res) => {
+  res.render('register', {
+    title: 'Đăng kí',
+    layout: false // KHÔNG chèn vào layout mặc định
+  });
+});
 module.exports = router;

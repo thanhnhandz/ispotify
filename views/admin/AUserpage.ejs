@@ -1,0 +1,62 @@
+<div id="content-container">
+    <div class="pageUser-container">
+        <h1 class="pageUser-title">👤 Users Management</h1>
+
+        <!-- Search and Filter -->
+        <div class="pageUser-toolbar">
+            <input type="text" placeholder="Search users..." class="pageUser-search" />
+            <select class="pageUser-filter">
+                <option value="">All Statuses</option>
+                <option value="active">Active</option>
+                <option value="banned">Banned</option>
+                <option value="premium">Premium</option>
+                <option value="free">Free</option>
+            </select>
+        </div>
+
+        <!-- Users Table -->
+        <div class="pageUser-table-wrapper">
+            <table class="pageUser-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Plan</th>
+                        <th>Status</th>
+                        <th>Follows</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Alice Nguyen</td>
+                        <td>alice@example.com</td>
+                        <td>Premium</td>
+                        <td><span class="pageUser-status-active">Active</span></td>
+                        <td>5,120</td>
+                        <td class="pageUser-actions">
+                            <i class="fas fa-user-slash" title="Ban"></i>
+                            <i class="fas fa-trash-alt" title="Delete"></i>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>John Tran</td>
+                        <td>john@example.com</td>
+                        <td>Free</td>
+                        <td><span class="pageUser-status-banned">Banned</span></td>
+                        <td>320</td>
+                        <td class="pageUser-actions">
+                            <i class="fas fa-unlock" title="Unban"></i>
+                            <i class="fas fa-trash-alt" title="Delete"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

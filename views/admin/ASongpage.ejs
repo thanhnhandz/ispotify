@@ -1,0 +1,56 @@
+<div class="ASongpage-container">
+    <h1 class="ASongpage-title">🎵 Songs Management</h1>
+
+    <!-- Search & Filter -->
+    <div class="ASongpage-toolbar">
+        <input type="text" placeholder="Search songs..." class="ASongpage-search" />
+        <select class="ASongpage-filter">
+            <option value="">All Statuses</option>
+            <option value="published">Published</option>
+            <option value="pending">Pending</option>
+        </select>
+    </div>
+
+    <!-- Table -->
+    <div class="ASongpage-table-wrapper">
+        <table class="ASongpage-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Song Title</th>
+                    <th>Artist</th>
+                    <th>Views</th>
+                    <th>Duration</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Blinding Lights</td>
+                    <td>The Weeknd</td>
+                    <td>1.000.000</td>
+                    <td>3:20</td>
+                    <td><span class="ASongpage-status-published">Published</span></td>
+                    <td class="ASongpage-actions">
+                        <i class="fas fa-check-circle checkActive" title="Approve"></i>
+                        <i class="fas fa-trash-alt" title="Remove"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>As It Was</td>
+                    <td>Harry Styles</td>
+                    <td>100.000</td>
+                    <td>2:47</td>
+                    <td><span class="ASongpage-status-pending">Pending</span></td>
+                    <td class="ASongpage-actions">
+                        <i class="fas fa-check-circle" title="Approve"></i>
+                        <i class="fas fa-trash-alt" title="Remove"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

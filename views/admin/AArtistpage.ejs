@@ -1,0 +1,61 @@
+<div id="content-container">
+    <div class="AArtistpage-container">
+        <h1 class="AArtistpage-title">🎤 Artists Management</h1>
+
+        <!-- Search & Filter -->
+        <div class="AArtistpage-toolbar">
+            <input type="text" placeholder="Search artist..." class="AArtistpage-search" />
+            <select class="AArtistpage-filter">
+                <option value="">All Statuses</option>
+                <option value="active">Active</option>
+                <option value="banned">Banned</option>
+            </select>
+        </div>
+
+        <!-- Table -->
+        <div class="AArtistpage-table-wrapper">
+            <table class="AArtistpage-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Artist Name</th>
+                        <th>Email</th>
+                        <th>Follows</th>
+                        <th>Albums</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Drake</td>
+                        <td>drake@spotify.com</td>
+                        <td>1.000.000</td>
+                        <td>12</td>
+                        <td><span class="AArtistpage-status-active">Active</span></td>
+                        <td class="AArtistpage-actions">
+                            <i class="fas fa-user-slash" title="Ban"></i>
+                            <i class="fas fa-trash-alt" title="Delete"></i>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Taylor Swift</td>
+                        <td>taylor@spotify.com</td>
+                        <td>123.456</td>
+                        <td>9</td>
+                        <td><span class="pageUser-status-banned">Banned</span></td>
+                        <td class="AArtistpage-actions">
+                            <i class="fas fa-unlock" title="Unban"></i>
+                            <i class="fas fa-trash-alt" title="Delete"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>

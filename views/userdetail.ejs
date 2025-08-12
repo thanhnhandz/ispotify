@@ -1,1240 +1,612 @@
-<div class="layout">
-        <div class="header-login">
-            <div class="header-left">
-                <span class="header-left_logo">
-                    <img src="OIP.jpg" alt="">
-                </span>
-                <span class="header-left_icon-homepage">
-                    <i class="fa-solid fa-house"></i>
-                </span>
-                <div class="header-left_search">
-                    <!-- Hoi chat gpt xem cái khung search này template như nào-->
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Bạn muốn phát nội dung gì?">
-                    <i class="fa-solid fa-folder-open"></i>
-                </div>
-                <div class="header-left_search--history">
-                    <div class="header-left_search--history-header">Các tìm kiếm gần đây</div>
-                    <div class="header-left_search--history-item">
-                        <img src="ST.jpg" alt="st-MTP" class="header-left_search--history-icon">
-                        <div class="header-left_search--history-texts">
-                            <div class="header-left_search--history-title">Có chắc yêu là đây</div>
-                            <div class="header-left_search--history-subtitle">Sơn Tùng</div>
-                        </div>
-                    </div>
-                    <div class="header-left_search--history-item">
-                        <img src="ST.jpg" alt="st-MTP" class="header-left_search--history-icon">
-                        <div class="header-left_search--history-texts">
-                            <div class="header-left_search--history-title">Có chắc yêu là đây</div>
-                            <div class="header-left_search--history-subtitle">Sơn Tùng</div>
-                        </div>
-                    </div>
-                    <button class="header-left_search--history-clear-button">Xoá các tìm kiếm gần đây</button>
+<% if (isUser) { %>
+    <div class="container-box-content1 container-box-content-artistdetailPage">
+        <!-- Những bài hát thịnh hành -->
+        <div class="container-box-artistdetailPage">
+            <div class="container-box-component-playlistPage-header container-box-component-userPage-header">
+                <img src="/img/DLTAD.jpg" alt="Playlist thumbnail"
+                    class="container-box-component-playlistPage-thumb container-box-component-userPage-thumb" />
+                <div class="container-box-component-playlistPage-info">
+                    <span class="container-box-component-playlistPage-public container-box-component-userPage-public">Hồ
+                        sơ</span>
+                    <h1 class="container-box-component-playlistPage-title container-box-component-userPage-title">
+                        Nhân</h1>
+                    <div class="container-box-component-playlistPage-subinfo container-box-component-userPage-subinfo">
+                        2 danh sách công khai</div>
                 </div>
             </div>
-            <div class="header-right">
-                <div class="header-right_menu">
-                    <ul class="header-right_menu--list">
-                        <li class="header-right_menu--item">Premium</li>
-                        <li class="header-right_menu--item">Hỗ trợ</li>
-                        <li class="header-right_menu--item">Tải xuống</li>
-                    </ul>
-                    <div class="header-right_menu_download">
-                        <i class="fa-solid fa-circle-arrow-down"></i>
-                        <span class="header-right_menu_download--text">Cài đặt ứng dụng</span>
-                    </div>
-                </div>
-                <div class="header-right_User">
-                    <span class="header-right_User--noti"><i class="fa-solid fa-bell"></i></span>
-                    <div class="header-right_User-box--avatar" id="avatarBtn">
-                        <span class="header-right_User--avatar">N</span>
-                    </div>
-                    <div class="dropdown-menu" id="dropdownMenu">
-                        <div class="dropdown-item">
-                            Tài khoản <i class="fa-solid fa-up-right-from-square icon"></i>
-                        </div>
-                        <div class="dropdown-item selected">
-                            Hồ sơ
-                        </div>
-                        <div class="dropdown-item">
-                            Nâng cấp lên Premium <i class="fa-solid fa-up-right-from-square icon"></i>
-                        </div>
-                        <div class="dropdown-item">
-                            Hỗ trợ <i class="fa-solid fa-up-right-from-square icon"></i>
-                        </div>
-                        <div class="dropdown-item">
-                            Tải xuống <i class="fa-solid fa-up-right-from-square icon"></i>
-                        </div>
-                        <div class="dropdown-item">
-                            Cài đặt
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown-item logout">
-                            Đăng xuất
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-login">
-            <!-- size 1/4-->
-            <div class="container-sidebar">
-                <div class="container-sidebar_box1">
-                    <span class="container-sidebar_box1-header">Thư viện</span>
-                    <span class="container-sidebar_box1-plus" id="sidebar_box1">
-                        <i class="fa-solid fa-plus"></i>
-                        Tạo
-                    </span>
-                    <div class="container-sidebar_box1-plus--list" id="box1_list">
-                        <div class="container-sidebar_box1-plus--item">
-                            <div class="container-sidebar_box1-plus--icon">
-                                🎵
-                            </div>
-                            <div class="container-sidebar_box1-plus--text-content">
-                                <div class="container-sidebar_box1-plus--title">Playlist</div>
-                                <div class="container-sidebar_box1-plus--subtitle">Tạo danh sách phát gồm bài hát hoặc
-                                    tập</div>
-                            </div>
-                        </div>
 
-                        <div class="container-sidebar_box1-plus--item">
-                            <div class="container-sidebar_box1-plus--icon">
-                                🎧
-                            </div>
-                            <div class="text-content">
-                                <div class="container-sidebar_box1-plus--title">Giai điệu chung</div>
-                                <div class="container-sidebar_box1-plus--subtitle">Pha trộn gu nhạc của bạn với bạn bè
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container-sidebar_box1-plus--item">
-                            <div class="container-sidebar_box1-plus--icon">
-                                📁
-                            </div>
-                            <div class="container-sidebar_box1-plus--text-content">
-                                <div class="container-sidebar_box1-plus--title">Thư mục</div>
-                                <div class="container-sidebar_box1-plus--subtitle">Sắp xếp danh sách phát của bạn</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-sidebar_box2">
-                    <span class="container-sidebar_box2-title">Danh sách phát</span>
-                </div>
-                <div class="container-sidebar_box3">
-                    <div class="container-sidebar_box3--search-wrapper" id="searchWrapper">
-                        <i class="fa fa-search search-icon" id="searchIcon"></i>
-                        <input type="text" placeholder="Tìm kiếm trong Thư viện"
-                            class="container-sidebar_box3--search-input" id="searchInput">
-                    </div>
-                    <span class="container-sidebar_box3-sort">
-                        <i class="fa-solid fa-list-ul"></i>
-                    </span>
-                    <div class="container-sidebar_box3-sort-menu">
-                        <div class="container-sidebar_box3-sort-title">Sắp xếp theo</div>
-                        <div class="container-sidebar_box3-sort-option">Gần đây</div>
-                        <div class="container-sidebar_box3-sort-option">Mới thêm gần đây</div>
-                        <div class="container-sidebar_box3-sort-option">Thứ tự chữ cái</div>
-                        <div class="container-sidebar_box3-sort-option">Người sáng tạo</div>
-
-                    </div>
-                </div>
-                <div class="container-sidebar_box4">
-                    <ul class="container-sidebar_box4-playlist">
-                        <li class="container-sidebar_box4-playlist--item"> <!-- Thẻ này luôn giữ-->
-                            <div class="container-sidebar_box4-playlist-image liked-song-thumbnail">
-                                <i class="fa-solid fa-heart"></i>
-                            </div>
-                            <div class="container-sidebar_box4-playlist-info">
-                                <div class="container-sidebar_box4-playlist-title">Bài hát đã thích</div>
-                                <div class="container-sidebar_box4-playlist-sub">📌 Danh sách phát • 1 bài hát</div>
-                            </div>
+            <div class="container-box-component-playlistPage-controls container-box-artistdetailPage-control">
+                <button class="container-box-component-userPage-btn-icon">⋯</button>
+                <div class="userPage-popup-menu">
+                    <ul>
+                        <li class="edit-profile-btn"><i class="fa-solid fa-pen"></i> Chỉnh sửa hồ sơ cá nhân
                         </li>
-                        <li class="container-sidebar_box4-playlist--item"> <!--Bắt đầu danh sách được tạo-->
-                            <div class="container-sidebar_box4-playlist-image">
-                                <i class="fa fa-music music-icon"></i>
-                                <i class="fa-solid fa-play play-icon"></i>
-                            </div>
-                            <div class="container-sidebar_box4-playlist-info">
-                                <div class="container-sidebar_box4-playlist-title">Danh sách phát của tôi #1</div>
-                                <div class="container-sidebar_box4-playlist-sub">Danh sách phát • 1 bài hát</div>
-                            </div>
-                        </li>
-                        <li class="container-sidebar_box4-playlist--item">
-                            <div class="container-sidebar_box4-playlist-image">
-                                <i class="fa fa-music music-icon"></i>
-                                <i class="fa-solid fa-play play-icon"></i>
-                            </div>
-                            <div class="container-sidebar_box4-playlist-info">
-                                <div class="container-sidebar_box4-playlist-title">Danh sách phát của tôi #1</div>
-                                <div class="container-sidebar_box4-playlist-sub">Danh sách phát • 1 bài hát</div>
-                            </div>
-                        </li>
-                        <li class="container-sidebar_box4-playlist--item">
-                            <div class="container-sidebar_box4-playlist-image">
-                                <i class="fa fa-music music-icon"></i>
-                                <i class="fa-solid fa-play play-icon"></i>
-                            </div>
-                            <div class="container-sidebar_box4-playlist-info">
-                                <div class="container-sidebar_box4-playlist-title">Danh sách phát của tôi #1</div>
-                                <div class="container-sidebar_box4-playlist-sub">Danh sách phát • 1 bài hát</div>
-                            </div>
-                        </li>
-                        <li class="container-sidebar_box4-playlist--item">
-                            <div class="container-sidebar_box4-playlist-image">
-                                <i class="fa fa-music music-icon"></i>
-                                <i class="fa-solid fa-play play-icon"></i>
-                            </div>
-                            <div class="container-sidebar_box4-playlist-info">
-                                <div class="container-sidebar_box4-playlist-title">Danh sách phát của tôi #1</div>
-                                <div class="container-sidebar_box4-playlist-sub">Danh sách phát • 1 bài hát</div>
-                            </div>
-                        </li>
-                        <li class="container-sidebar_box4-playlist--item">
-                            <div class="container-sidebar_box4-playlist-image">
-                                <i class="fa fa-music music-icon"></i>
-                                <i class="fa-solid fa-play play-icon"></i>
-                            </div>
-                            <div class="container-sidebar_box4-playlist-info">
-                                <div class="container-sidebar_box4-playlist-title">Danh sách phát của tôi #1</div>
-                                <div class="container-sidebar_box4-playlist-sub">Danh sách phát • Nhân</div>
-                            </div>
-                        </li>
+                        <li><i class="fa-solid fa-share"></i> Sao chép đường link tới hồ sơ</li>
                     </ul>
                 </div>
             </div>
-            <!-- size 3/4 -->
-            <div class="container-box-content">
-                <div class="container-box-content1 container-box-content-artistdetailPage">
-                    <!-- Những bài hát thịnh hành -->
-                    <div class="container-box-artistdetailPage">
-                        <div
-                            class="container-box-component-playlistPage-header container-box-component-userPage-header">
-                            <img src="DLTAD.jpg" alt="Playlist thumbnail"
-                                class="container-box-component-playlistPage-thumb container-box-component-userPage-thumb" />
-                            <div class="container-box-component-playlistPage-info">
-                                <span
-                                    class="container-box-component-playlistPage-public container-box-component-userPage-public">Hồ
-                                    sơ</span>
-                                <h1
-                                    class="container-box-component-playlistPage-title container-box-component-userPage-title">
-                                    Nhân</h1>
-                                <div
-                                    class="container-box-component-playlistPage-subinfo container-box-component-userPage-subinfo">
-                                    2 danh sách công khai</div>
-                            </div>
-                        </div>
 
-                        <div
-                            class="container-box-component-playlistPage-controls container-box-artistdetailPage-control">
-                            <button class="container-box-component-userPage-btn-icon">⋯</button>
-                            <div class="userPage-popup-menu">
-                                <ul>
-                                    <li class="edit-profile-btn"><i class="fa-solid fa-pen"></i> Chỉnh sửa hồ sơ cá nhân
-                                    </li>
-                                    <li><i class="fa-solid fa-share"></i> Sao chép đường link tới hồ sơ</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Những bài hát thịnh hành -->
-                    <div class="container-box-component">
-                        <div class="container-box-component--header">
-                            <div class="container-box-component--header--div">
-                                <span class="container-box-component--header--text">Nghệ sĩ hàng đầu tháng này</span>
-                            </div>
-                            <div class="slider-container">
-                                <button class="container-box-component--header--list--btn-left">&#10094;</button>
-                                <ul class="container-box-component--header--list">
-
-                                    <li class="container-box-component--header--item">
-                                        <div class="song-thumbnail">
-                                            <img src="imgSong.jpg" alt=""
-                                                class="container-box-component--header--item--img img-avatar-circle" />
-                                            <span class="container-box-component--header--item--icon-play">
-                                                <i class="fa-solid fa-play"></i>
-                                            </span>
-                                        </div>
-                                        <span class="container-box-component--header--item--nameSong">Sơn Tùng</span>
-                                        <span class="container-box-component--header--item--artist">Nghệ sĩ</span>
-                                    </li>
-
-                                </ul>
-                                <button class="container-box-component--header--list--btn-right">&#10095;</button>
-                            </div>
-                        </div>
+            <!-- Những bài hát thịnh hành -->
+            <div class="container-box-component">
+                <div class="container-box-component--header">
+                    <div class="container-box-component--header--div">
+                        <span class="container-box-component--header--text">Nghệ sĩ hàng đầu tháng này</span>
                     </div>
-                        <div class="container-box-component-songDetail-propose">
-                            <h1 class="container-box-component-songDetail-propose-title">Bản nhạc hàng đầu nghe tháng này</h1>
-                            <ul
-                                class="container-box-component-songDetail-propose-list container-box-artistdetailPage-list">
-                                <li
-                                    class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item active">
-                                    <div class="container-box-component-songDetail-propose-item-box1">
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box1-info-top">1</span>
-                                        <div class="img-wrapper">
-                                            <img src="ST.jpg" alt=""
-                                                class="container-box-component-songDetail-propose-item-box1-img">
-                                            <i
-                                                class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
-                                        </div>
-                                        <div class="container-box-component-songDetail-propose-item-box1-info">
-                                            <span
-                                                class="container-box-component-songDetail-propose-item-box1-info-name">Hết
-                                                thương cạn nhớ</span>
+                    <div class="slider-container">
+                        <button class="container-box-component--header--list--btn-left">&#10094;</button>
+                        <ul class="container-box-component--header--list">
 
-                                        </div>
-                                    </div>
-                                    <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
-                                    <div class="container-box-component-songDetail-propose-item-box3">
-
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
-                                        <i
-                                            class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
-                                    </div>
-                                </li>
-
-                                <li
-                                    class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
-                                    <div class="container-box-component-songDetail-propose-item-box1">
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box1-info-top">2</span>
-                                        <div class="img-wrapper">
-                                            <img src="ST.jpg" alt=""
-                                                class="container-box-component-songDetail-propose-item-box1-img">
-                                            <i
-                                                class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
-                                        </div>
-                                        <div class="container-box-component-songDetail-propose-item-box1-info">
-                                            <span
-                                                class="container-box-component-songDetail-propose-item-box1-info-name">Hết
-                                                thương cạn nhớ</span>
-                                        </div>
-                                    </div>
-                                    <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
-                                    <div class="container-box-component-songDetail-propose-item-box3">
-
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
-                                        <i
-                                            class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
-                                    </div>
-                                </li>
-
-                                <li
-                                    class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
-                                    <div class="container-box-component-songDetail-propose-item-box1">
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box1-info-top">3</span>
-                                        <div class="img-wrapper">
-                                            <img src="ST.jpg" alt=""
-                                                class="container-box-component-songDetail-propose-item-box1-img">
-                                            <i
-                                                class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
-                                        </div>
-                                        <div class="container-box-component-songDetail-propose-item-box1-info">
-                                            <span
-                                                class="container-box-component-songDetail-propose-item-box1-info-name">Hết
-                                                thương cạn nhớ</span>
-                                        </div>
-                                    </div>
-                                    <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
-                                    <div class="container-box-component-songDetail-propose-item-box3">
-
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
-                                        <i
-                                            class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
-                                    </div>
-                                </li>
-
-                                <li
-                                    class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
-                                    <div class="container-box-component-songDetail-propose-item-box1">
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box1-info-top">4</span>
-                                        <div class="img-wrapper">
-                                            <img src="ST.jpg" alt=""
-                                                class="container-box-component-songDetail-propose-item-box1-img">
-                                            <i
-                                                class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
-                                        </div>
-                                        <div class="container-box-component-songDetail-propose-item-box1-info">
-                                            <span
-                                                class="container-box-component-songDetail-propose-item-box1-info-name">Hết
-                                                thương cạn nhớ</span>
-                                        </div>
-                                    </div>
-                                    <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
-                                    <div class="container-box-component-songDetail-propose-item-box3">
-
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
-                                        <i
-                                            class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
-                                    </div>
-                                </li>
-
-                                <li
-                                    class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
-                                    <div class="container-box-component-songDetail-propose-item-box1">
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box1-info-top">5</span>
-                                        <div class="img-wrapper">
-                                            <img src="ST.jpg" alt=""
-                                                class="container-box-component-songDetail-propose-item-box1-img">
-                                            <i
-                                                class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
-                                        </div>
-                                        <div class="container-box-component-songDetail-propose-item-box1-info">
-                                            <span
-                                                class="container-box-component-songDetail-propose-item-box1-info-name">Hết
-                                                thương cạn nhớ</span>
-                                        </div>
-                                    </div>
-                                    <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
-                                    <div class="container-box-component-songDetail-propose-item-box3">
-
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
-                                        <i
-                                            class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
-                                    </div>
-                                </li>
-
-                                <li
-                                    class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
-                                    <div class="container-box-component-songDetail-propose-item-box1">
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box1-info-top">6</span>
-                                        <div class="img-wrapper">
-                                            <img src="ST.jpg" alt=""
-                                                class="container-box-component-songDetail-propose-item-box1-img">
-                                            <i
-                                                class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
-                                        </div>
-                                        <div class="container-box-component-songDetail-propose-item-box1-info">
-                                            <span
-                                                class="container-box-component-songDetail-propose-item-box1-info-name">Hết
-                                                thương cạn nhớ</span>
-                                        </div>
-                                    </div>
-                                    <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
-                                    <div class="container-box-component-songDetail-propose-item-box3">
-
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
-                                        <i
-                                            class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
-                                    </div>
-                                </li>
-
-                                <li
-                                    class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
-                                    <div class="container-box-component-songDetail-propose-item-box1">
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box1-info-top">7</span>
-                                        <div class="img-wrapper">
-                                            <img src="ST.jpg" alt=""
-                                                class="container-box-component-songDetail-propose-item-box1-img">
-                                            <i
-                                                class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
-                                        </div>
-                                        <div class="container-box-component-songDetail-propose-item-box1-info">
-                                            <span
-                                                class="container-box-component-songDetail-propose-item-box1-info-name">Hết
-                                                thương cạn nhớ</span>
-                                        </div>
-                                    </div>
-                                    <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
-                                    <div class="container-box-component-songDetail-propose-item-box3">
-
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
-                                        <i
-                                            class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
-                                    </div>
-                                </li>
-
-                                <li
-                                    class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
-                                    <div class="container-box-component-songDetail-propose-item-box1">
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box1-info-top">8</span>
-                                        <div class="img-wrapper">
-                                            <img src="ST.jpg" alt=""
-                                                class="container-box-component-songDetail-propose-item-box1-img">
-                                            <i
-                                                class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
-                                        </div>
-                                        <div class="container-box-component-songDetail-propose-item-box1-info">
-                                            <span
-                                                class="container-box-component-songDetail-propose-item-box1-info-name">Hết
-                                                thương cạn nhớ</span>
-                                        </div>
-                                    </div>
-                                    <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
-                                    <div class="container-box-component-songDetail-propose-item-box3">
-
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
-                                        <i
-                                            class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
-                                    </div>
-                                </li>
-
-                                <li
-                                    class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
-                                    <div class="container-box-component-songDetail-propose-item-box1">
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box1-info-top">9</span>
-                                        <div class="img-wrapper">
-                                            <img src="ST.jpg" alt=""
-                                                class="container-box-component-songDetail-propose-item-box1-img">
-                                            <i
-                                                class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
-                                        </div>
-                                        <div class="container-box-component-songDetail-propose-item-box1-info">
-                                            <span
-                                                class="container-box-component-songDetail-propose-item-box1-info-name">Hết
-                                                thương cạn nhớ</span>
-                                        </div>
-                                    </div>
-                                    <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
-                                    <div class="container-box-component-songDetail-propose-item-box3">
-
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
-                                        <i
-                                            class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
-                                    </div>
-                                </li>
-
-                                <li
-                                    class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
-                                    <div class="container-box-component-songDetail-propose-item-box1">
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box1-info-top">10</span>
-                                        <div class="img-wrapper">
-                                            <img src="ST.jpg" alt=""
-                                                class="container-box-component-songDetail-propose-item-box1-img">
-                                            <i
-                                                class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
-                                        </div>
-                                        <div class="container-box-component-songDetail-propose-item-box1-info">
-                                            <span
-                                                class="container-box-component-songDetail-propose-item-box1-info-name">Hết
-                                                thương cạn nhớ</span>
-                                        </div>
-                                    </div>
-                                    <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
-                                    <div class="container-box-component-songDetail-propose-item-box3">
-
-                                        <span
-                                            class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
-                                        <i
-                                            class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
-                                    </div>
-                                </li>
-                            </ul>
-                            <button id="toggleListBtn-artistPage">Xem thêm</button>
-                        </div>
-
-
-                    </div>
-
-                    <!-- Những bài hát thịnh hành -->
-                    <div class="container-box-component">
-                        <div class="container-box-component--header">
-                            <div class="container-box-component--header--div">
-                                <span class="container-box-component--header--text">Album của Sơn Tùng - MTP</span>
-                                <span class="container-box-component--header--showAll">Hiện tất cả</span>
-                            </div>
-                            <div class="slider-container">
-                                <button class="container-box-component--header--list--btn-left">&#10094;</button>
-                                <ul class="container-box-component--header--list">
-
-                                    <li class="container-box-component--header--item">
-                                        <div class="song-thumbnail">
-                                            <img src="imgSong.jpg" alt=""
-                                                class="container-box-component--header--item--img" />
-                                            <span class="container-box-component--header--item--icon-play">
-                                                <i class="fa-solid fa-play"></i>
-                                            </span>
-                                        </div>
-                                        <span class="container-box-component--header--item--nameSong">Nằm Bên Anh</span>
-                                        <span class="container-box-component--header--item--artist">Minh Đinh, Hà An
-                                            Huy</span>
-                                    </li>
-
-                                    <li class="container-box-component--header--item">
-                                        <div class="song-thumbnail">
-                                            <img src="imgSong.jpg" alt=""
-                                                class="container-box-component--header--item--img" />
-                                            <span class="container-box-component--header--item--icon-play">
-                                                <i class="fa-solid fa-play"></i>
-                                            </span>
-                                        </div>
-                                        <span class="container-box-component--header--item--nameSong">Nằm Bên Anh</span>
-                                        <span class="container-box-component--header--item--artist">Minh Đinh, Hà An
-                                            Huy</span>
-                                    </li>
-
-                                    <li class="container-box-component--header--item">
-                                        <div class="song-thumbnail">
-                                            <img src="imgSong.jpg" alt=""
-                                                class="container-box-component--header--item--img" />
-                                            <span class="container-box-component--header--item--icon-play">
-                                                <i class="fa-solid fa-play"></i>
-                                            </span>
-                                        </div>
-                                        <span class="container-box-component--header--item--nameSong">Nằm Bên Anh</span>
-                                        <span class="container-box-component--header--item--artist">Minh Đinh, Hà An
-                                            Huy</span>
-                                    </li>
-
-                                    <li class="container-box-component--header--item">
-                                        <div class="song-thumbnail">
-                                            <img src="imgSong.jpg" alt=""
-                                                class="container-box-component--header--item--img" />
-                                            <span class="container-box-component--header--item--icon-play">
-                                                <i class="fa-solid fa-play"></i>
-                                            </span>
-                                        </div>
-                                        <span class="container-box-component--header--item--nameSong">Nằm Bên Anh</span>
-                                        <span class="container-box-component--header--item--artist">Minh Đinh, Hà An
-                                            Huy</span>
-                                    </li>
-
-                                    <li class="container-box-component--header--item">
-                                        <div class="song-thumbnail">
-                                            <img src="imgSong.jpg" alt=""
-                                                class="container-box-component--header--item--img" />
-                                            <span class="container-box-component--header--item--icon-play">
-                                                <i class="fa-solid fa-play"></i>
-                                            </span>
-                                        </div>
-                                        <span class="container-box-component--header--item--nameSong">Nằm Bên Anh</span>
-                                        <span class="container-box-component--header--item--artist">Minh Đinh, Hà An
-                                            Huy</span>
-                                    </li>
-
-                                    <li class="container-box-component--header--item">
-                                        <div class="song-thumbnail">
-                                            <img src="imgSong.jpg" alt=""
-                                                class="container-box-component--header--item--img" />
-                                            <span class="container-box-component--header--item--icon-play">
-                                                <i class="fa-solid fa-play"></i>
-                                            </span>
-                                        </div>
-                                        <span class="container-box-component--header--item--nameSong">Nằm Bên Anh</span>
-                                        <span class="container-box-component--header--item--artist">Minh Đinh, Hà An
-                                            Huy</span>
-                                    </li>
-
-                                </ul>
-                                <button class="container-box-component--header--list--btn-right">&#10095;</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="container-box-footer">
-                        <div class="box--list">
-                            <ul class="container-box-footer--list">
-                                <h3 class="container-box-footer--header3">Công ty</h3>
-                                <li class="container-box-footer--item">Giới thiệu</li>
-                                <li class="container-box-footer--item">Việc làm</li>
-                                <li class="container-box-footer--item">For the Record</li>
-                            </ul>
-                            <ul class="container-box-footer--list">
-                                <h3 class="container-box-footer--header3">Cộng đồng</h3>
-                                <li class="container-box-footer--item">Dành cho các Nghệ sĩ</li>
-                                <li class="container-box-footer--item">Nhà Phát triển</li>
-                                <li class="container-box-footer--item">Quảng cáo</li>
-                                <li class="container-box-footer--item">Nhà đầu tư</li>
-                                <li class="container-box-footer--item">Nhà cung cấp</li>
-
-                            </ul>
-                            <ul class="container-box-footer--list">
-                                <h3 class="container-box-footer--header3">Liên kết hữu ích</h3>
-                                <li class="container-box-footer--item">Hỗ trợ</li>
-                                <li class="container-box-footer--item">Ứng dụng di động miễn phí</li>
-                                <li class="container-box-footer--item">Phổ biến quốc gia</li>
-                            </ul>
-                            <ul class="container-box-footer--list">
-                                <h3 class="container-box-footer--header3">Các gói của Spotify</h3>
-                                <li class="container-box-footer--item">Premium Individual</li>
-                                <li class="container-box-footer--item">Premium Student</li>
-                                <li class="container-box-footer--item">Spotify free</li>
-                            </ul>
-                        </div>
-                        <div class="box--icon">
-                            <span class="box--icon--span">
-                                <i class="fa-brands fa-instagram"></i>
-                            </span>
-                            <span class="box--icon--span">
-                                <i class="fa-brands fa-facebook"></i>
-                            </span>
-                            <span class="box--icon--span">
-                                <i class="fa-brands fa-twitter"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-box-content2">
-                    <div class="lyrics-container">
-                        <span class="lyric-line" data-start-time="27.00">Hồng trần trên đôi cánh tay</span>
-                        <span class="lyric-line" data-start-time="29.30">Họa đời em trong phút giây</span>
-                        <span class="lyric-line" data-start-time="31.60">Từ ngày thơ ấy còn ngủ mơ</span>
-                        <span class="lyric-line" data-start-time="33.80">Đến khi em thờ ơ ờ</span>
-                        <span class="lyric-line" data-start-time="37.00">Lòng người ai đâu có hay</span>
-                        <span class="lyric-line" data-start-time="39.70">Một ngày khi vỗ cánh bay</span>
-                        <span class="lyric-line" data-start-time="41.70">Từ người yêu hóa thành người dưng</span>
-                        <span class="lyric-line" data-start-time="44.00">Đến khi ta tự xưng à</span>
-
-                        <span class="lyric-line" data-start-time="46.50">Thương em bờ vai nhỏ nhoi</span>
-                        <span class="lyric-line" data-start-time="48.30">Đôi mắt hóa mây đêm</span>
-                        <span class="lyric-line" data-start-time="51.50">Thương sao mùi dạ lý hương</span>
-                        <span class="lyric-line" data-start-time="53.70">Vương vấn mãi bên thềm</span>
-                        <span class="lyric-line" data-start-time="56.30">Đời phiêu du cố tìm một người thật lòng</span>
-                        <span class="lyric-line" data-start-time="59.50">Dẫu trời mênh mong anh nhớ em</span>
-
-                        <span class="lyric-line" data-start-time="66.10">Chim kia về vẫn có đôi</span>
-                        <span class="lyric-line" data-start-time="68.30">Sao chẳng số phu thê</span>
-                        <span class="lyric-line" data-start-time="71.40">Em ơi đừng xa cách tôi</span>
-                        <span class="lyric-line" data-start-time="73.50">Trăng cố níu em về</span>
-                        <span class="lyric-line" data-start-time="76.00">Bình yên trên mái nhà</span>
-                        <span class="lyric-line" data-start-time="78.10">Nhìn đời ngược dòng</span>
-                        <span class="lyric-line" data-start-time="79.80">Em còn bên anh có phải không?</span>
-
-                        <span class="lyric-line" data-start-time="85.00">Trời ban ánh sáng, năm tháng tư bề</span>
-                        <span class="lyric-line" data-start-time="88.20">Dáng ai về chung lối</span>
-                        <span class="lyric-line" data-start-time="91.30">Người mang tia nắng</span>
-                        <span class="lyric-line" data-start-time="92.70">Nhưng cớ sao còn tăm tối</span>
-                        <span class="lyric-line" data-start-time="96.60">Một mai em lỡ vấp ngã trên đời thay đổi</span>
-                        <span class="lyric-line" data-start-time="101.3">Nhìn về anh, người chẳng khiến em lẻ loi</span>
-                        <br>
-                        <span class="lyric-line" data-start-time="107.00">Nhạc dạo</span>
-                        <br>
-                        <span class="lyric-line" data-start-time="127.50">Oh! Nếu em có về</span>
-                        <span class="lyric-line" data-start-time="129.00">Anh sẽ mang hết những suy tư</span>
-                        <span class="lyric-line" data-start-time="131.00">Mang hết hành trang</span>
-                        <span class="lyric-line" data-start-time="131.50">Những ngày sống khổ</span>
-                        <span class="lyric-line" data-start-time="132.00">Để cho gió biển di cư</span>
-                        <span class="lyric-line" data-start-time="133.50">Anh thà lênh đênh không có ngày về</span>
-                        <span class="lyric-line" data-start-time="134.70">Hóa kiếp thân trai như Thủy Hử</span>
-                        <span class="lyric-line" data-start-time="135.90">Chẳng đành để em từ một cô bé</span>
-                        <span class="lyric-line" data-start-time="137.00">Sóng gió vây quanh thành quỷ dữ</span>
-                        <span class="lyric-line" data-start-time="138.10">Ta tự đẩy mình hay tự ta trói</span>
-                        <span class="lyric-line" data-start-time="139.60">Bây giờ có khác gì đâu</span>
-                        <span class="lyric-line" data-start-time="140.90">Ta chả bận lòng hay chẳng thể nói</span>
-                        <span class="lyric-line" data-start-time="142.00">Tụi mình có khác gì nhau</span>
-                        <span class="lyric-line" data-start-time="143.20">Yêu sao cánh điệp phủ mờ nét bút</span>
-                        <span class="lyric-line" data-start-time="144.80">Dẫu người chẳng hẹn đến về sau</span>
-                        <span class="lyric-line" data-start-time="145.90">Phố thị đèn màu ta chỉ cần chung lối</span>
-                        <span class="lyric-line" data-start-time="147.40">Để rồi sống chết cũng vì nhau</span>
-
-                        <span class="lyric-line" data-start-time="148.30">Nhặt một nhành hoa rơi</span>
-                        <span class="lyric-line" data-start-time="150.00">Đoạn đường về nhà thật buồn em ơi</span>
-                        <span class="lyric-line" data-start-time="152.30">Dòng người vội vàng giờ này</span>
-                        <span class="lyric-line" data-start-time="153.70">Tình ơi tình ơi tình ơi em ở đâu rồi</span>
-                        <span class="lyric-line" data-start-time="157.80">Lặng nhìn bờ vai xưa</span>
-                        <span class="lyric-line" data-start-time="159.90">Tựa đầu mình hỏi rằng khổ chưa</span>
-                        <span class="lyric-line" data-start-time="162.30">Đành lòng chặn đường giờ</span>
-                        <span class="lyric-line" data-start-time="163.80">Đừng đi đừng đi đừng đi vì câu hứa</span>
-
-                        <span class="lyric-line" data-start-time="169.30">Trời ban ánh sáng năm tháng tư bề</span>
-                        <span class="lyric-line" data-start-time="172.30">Dáng ai về chung lối</span>
-                        <span class="lyric-line" data-start-time="175.70">Người mang tia nắng</span>
-                        <span class="lyric-line" data-start-time="176.70">Nhưng cớ sao còn tăm tối</span>
-                        <span class="lyric-line" data-start-time="180.50">Một mai em lỡ vấp ngã trên đời thay đổi</span>
-                        <span class="lyric-line" data-start-time="185.80">Nhìn về anh, người chẳng khiến em lẻ
-                            loi</span>
-
-                        <span class="lyric-line" data-start-time="190.70">Ngày buồn giờ áo ai khâu vá quàng rồi</span>
-                        <span class="lyric-line" data-start-time="195.80">Lặng nhìn dòng nước con sông phút bồi
-                            hồi</span>
-                        <span class="lyric-line" data-start-time="201.00">Một lần này hỡi em ơi ở lại đi</span>
-                        <span class="lyric-line" data-start-time="205.80">Vạn trùng cơn đau</span>
-                        <span class="lyric-line" data-start-time="207.90">Ngoài kia chỉ là bão tố</span>
-
-                        <span class="lyric-line" data-start-time="211.70">Trời ban ánh sáng năm tháng tư bề</span>
-                        <span class="lyric-line" data-start-time="214.60">Dáng ai về chung lối</span>
-                        <span class="lyric-line" data-start-time="218.80">Người mang tia nắng</span>
-                        <span class="lyric-line" data-start-time="219.90">Nhưng cớ sao còn tăm tối</span>
-                        <span class="lyric-line" data-start-time="223.20">Một mai em lỡ vấp ngã trên đời thay đổi</span>
-                        <span class="lyric-line" data-start-time="228.80">Nhìn về anh, người chẳng khiến em lẻ
-                            loi</span>
-
-                        <span class="lyric-line" data-start-time="234.00">Người thì vẫn đây</span>
-                        <span class="lyric-line" data-start-time="234.80">Người thì cách vạn dậm ngàn mây</span>
-                        <span class="lyric-line" data-start-time="236.00">Không say không về</span>
-                        <span class="lyric-line" data-start-time="238.80">Rượu nào mà chả đắng</span>
-                        <span class="lyric-line" data-start-time="240.00">Đoạn đường dài giờ này quạnh vắng</span>
-                        <span class="lyric-line" data-start-time="241.00">Ai buông câu thề</span>
-                        <span class="lyric-line" data-start-time="244.00">Chỉ còn lại nỗi nhớ</span>
-                        <span class="lyric-line" data-start-time="244.80">Ngày nào chuyện tình mình vụn vỡ</span>
-                        <span class="lyric-line" data-start-time="246.30">Tơ duyên lỡ làng</span>
-                        <span class="lyric-line" data-start-time="249.00">Lùi lại về đằng xa</span>
-                        <span class="lyric-line" data-start-time="250.20">Cuộc đời mình chẳng bằng người ta</span>
-                        <span class="lyric-line" data-start-time="251.50">Tiếng lòng thở than</span>
-                        <br>
-                        <span class="lyric-line" data-start-time="253.00">Nhạc kết</span>
-                        <br>
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="container-sidebar-right">
-                <div class="container-sidebar-right-playing-list">
-                    <div class="playing-item">
-                        <h3 class="container-sidebar-right-section-title">Âm Thầm Bên Em</h3>
-                        <img src="album-ST.jpg" alt="Âm Thầm Bên Em album" class="container-sidebar-right-main-image" />
-                        <div class="container-sidebar-right-boxx">
-                            <div class="container-sidebar-right-song-info">
-                                <h4 class="container-sidebar-right-song-title">Âm Thầm Bên Em</h4>
-                                <p class="container-sidebar-right-artist-name">Sơn Tùng M-TP</p>
-                            </div>
-                            <i class="fa-regular fa-square-plus"></i>
-                            <!-- container-sidebar-right-boxx-popup -->
-                            <div class="container-sidebar-right-boxx-popup">
-                                <div class="container-sidebar-right-boxx-popup-header">Thêm vào danh sách phát</div>
-                                <input type="text" placeholder="Tìm một danh sách phát"
-                                    class="container-sidebar-right-boxx-playlist-search" />
-
-                                <div
-                                    class="container-sidebar-right-boxx-playlist-item container-sidebar-right-boxx-create-new">
-                                    <span class="container-sidebar-right-boxx-plus">+</span> Danh sách phát mới
+                            <li class="container-box-component--header--item">
+                                <div class="song-thumbnail">
+                                    <img src="/img/imgSong.jpg" alt=""
+                                        class="container-box-component--header--item--img img-avatar-circle" />
+                                    <span class="container-box-component--header--item--icon-play">
+                                        <i class="fa-solid fa-play"></i>
+                                    </span>
                                 </div>
-
-                                <ul class="container-sidebar-right-boxx-playlist-list">
-                                    <li class="container-sidebar-right-boxx-playlist-item" onclick="toggleSelect(this)">
-                                        <div
-                                            class="container-sidebar-right-boxx-icon container-sidebar-right-boxx-purple">
-                                            <span>♥</span>
-                                        </div>
-                                        <span class="container-sidebar-right-boxx-text">Bài hát đã thích</span>
-                                        <div class="container-sidebar-right-boxx-circle">
-                                            <span class="container-sidebar-right-boxx-check">✔</span>
-                                        </div>
-                                    </li>
-
-                                    <li class="container-sidebar-right-boxx-playlist-item" onclick="toggleSelect(this)">
-                                        <img src="imgSong.jpg" alt="" class="container-sidebar-right-boxx-icon" />
-                                        <span class="container-sidebar-right-boxx-text">Danh sách phát của tôi #1</span>
-                                        <div class="container-sidebar-right-boxx-circle">
-                                            <span class="container-sidebar-right-boxx-check">✔</span>
-                                        </div>
-                                    </li>
-                                    <li class="container-sidebar-right-boxx-playlist-item" onclick="toggleSelect(this)">
-                                        <img src="imgSong.jpg" alt="" class="container-sidebar-right-boxx-icon" />
-                                        <span class="container-sidebar-right-boxx-text">Danh sách phát của tôi #1</span>
-                                        <div class="container-sidebar-right-boxx-circle">
-                                            <span class="container-sidebar-right-boxx-check">✔</span>
-                                        </div>
-                                    </li>
-                                    <li class="container-sidebar-right-boxx-playlist-item" onclick="toggleSelect(this)">
-                                        <img src="imgSong.jpg" alt="" class="container-sidebar-right-boxx-icon" />
-                                        <span class="container-sidebar-right-boxx-text">Danh sách phát của tôi #1</span>
-                                        <div class="container-sidebar-right-boxx-circle">
-                                            <span class="container-sidebar-right-boxx-check">✔</span>
-                                        </div>
-                                    </li>
-                                    <li class="container-sidebar-right-boxx-playlist-item" onclick="toggleSelect(this)">
-                                        <img src="imgSong.jpg" alt="" class="container-sidebar-right-boxx-icon" />
-                                        <span class="container-sidebar-right-boxx-text">Danh sách phát của tôi #1</span>
-                                        <div class="container-sidebar-right-boxx-circle">
-                                            <span class="container-sidebar-right-boxx-check">✔</span>
-                                        </div>
-                                    </li>
-                                    <li class="container-sidebar-right-boxx-playlist-item" onclick="toggleSelect(this)">
-                                        <img src="imgSong.jpg" alt="" class="container-sidebar-right-boxx-icon" />
-                                        <span class="container-sidebar-right-boxx-text">Danh sách phát của tôi #1</span>
-                                        <div class="container-sidebar-right-boxx-circle">
-                                            <span class="container-sidebar-right-boxx-check">✔</span>
-                                        </div>
-                                    </li>
-
-                                    <!-- thêm nhiều li nếu muốn test scroll -->
-                                </ul>
-
-
-
-                                <div class="container-sidebar-right-boxx-popup-footer">
-                                    <button
-                                        class="container-sidebar-right-boxx-btn container-sidebar-right-boxx-cancel">Hủy</button>
-                                    <button
-                                        class="container-sidebar-right-boxx-btn container-sidebar-right-boxx-confirm">Xong</button>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                    <div class="container-sidebar-right-playing-item">
-                        <h3 class="container-sidebar-right-section-title">Giới thiệu về nghệ sĩ</h3>
-                        <img src="ST.jpg" alt="Sơn Tùng M-TP" class="artist-image" />
-                        <div class="container-sidebar-right-artist-detail">
-                            <h4 class="container-sidebar-right-artist-title">Sơn Tùng M-TP</h4>
-                            <p class="container-sidebar-right-monthly-listeners">1.804.465 người nghe hằng tháng</p>
-                            <button class="container-sidebar-right-follow-btn">Theo dõi</button>
-                            <p class="container-sidebar-right-artist-bio">
-                                Nguyễn Thanh Tùng, born in 1994, known professionally as Sơn Tùng M-TP, is a Vietnamese
-                                singer,...
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="container-sidebar-right-playing-item">
-                        <h3 class="container-sidebar-right-section-title">Người tham gia</h3>
-                        <div class="container-sidebar-right-credit-block">
-                            <h4>Sơn Tùng M-TP</h4>
-                            <p>Nghệ Sĩ Chính, Nhà Sản Xuất</p>
-                            <button class="container-sidebar-right-follow-btn">Theo dõi</button>
-                        </div>
-                        <div class="container-sidebar-right-credit-block">
-                            <h4>Nguyễn Thanh Tùng</h4>
-                            <p>Nhà Soạn Nhạc</p>
-                        </div>
-                    </div>
-
-                    <div class="container-sidebar-right-playing_item container-sidebar-right-playing-item-last">
-                        <div class="container-sidebar-right-playlist-box-header">
-                            <span>Tiếp theo…</span>
-                            <span id="togglePlaylist" class="container-sidebar-right-toggle-btn">Mở danh sách chờ</span>
-                        </div>
-
-                        <ul class="container-sidebar-right-playlist-list">
-                            <li class="container-sidebar-right-playlist-item">
-                                <img src="imgSong.jpg" />
-                                <div class="container-sidebar-right-playlist-info">
-                                    <span class="container-sidebar-right-title">Bầu Trời Mới</span>
-                                    <span class="container-sidebar-right-artist">Da LAB, Minh Tóc Tiên</span>
-                                </div>
+                                <span class="container-box-component--header--item--nameSong">Sơn Tùng</span>
+                                <span class="container-box-component--header--item--artist">Nghệ sĩ</span>
                             </li>
+
                         </ul>
+                        <button class="container-box-component--header--list--btn-right">&#10095;</button>
                     </div>
-
                 </div>
-                <div class="container-sidebar-right-waiting-list">
-                    <div class="container-sidebar-right-waiting-list-header">
-                        <span>Danh sách chờ</span>
-                        <span class="container-sidebar-right-waiting-list-close-btn">✕</span>
-                    </div>
+            </div>
+            <div class="container-box-component-songDetail-propose">
+                <h1 class="container-box-component-songDetail-propose-title">Bản nhạc hàng đầu nghe tháng này
+                </h1>
+                <ul class="container-box-component-songDetail-propose-list container-box-artistdetailPage-list">
+                    <li
+                        class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item active">
+                        <div class="container-box-component-songDetail-propose-item-box1">
+                            <span class="container-box-component-songDetail-propose-item-box1-info-top">1</span>
+                            <div class="img-wrapper">
+                                <img src="/img/ST.jpg" alt=""
+                                    class="container-box-component-songDetail-propose-item-box1-img">
+                                <i
+                                    class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
+                            </div>
+                            <div class="container-box-component-songDetail-propose-item-box1-info">
+                                <span class="container-box-component-songDetail-propose-item-box1-info-name">Hết
+                                    thương cạn nhớ</span>
 
-                    <div class="container-sidebar-right-waiting-list-section">
-                        <div class="container-sidebar-right-waiting-list-label">Đang phát</div>
-                        <div
-                            class="container-sidebar-right-waiting-list-item container-sidebar-right-waiting-list-playing">
-                            <img src="imgSong.jpg" />
-                            <div class="container-sidebar-right-waiting_list-info">
-                                <div class="container-sidebar-right-waiting-list-title">Phép Màu - Đàn Cá Tung Tăng Trên
-                                    Bầu Trời Hạnh Phúc</div>
-                                <div class="container-sidebar-right-waiting-list-artist">MAYDAYs, Minh Tóc &...</div>
                             </div>
-                            <span class="container-sidebar-right-waiting-list-more-btn">...</span>
                         </div>
-                    </div>
+                        <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
+                        <div class="container-box-component-songDetail-propose-item-box3">
 
-                    <div class="container-sidebar-right-waiting-list-section">
-                        <div class="container-sidebar-right-waiting-list-label">Tiếp theo</div>
+                            <span class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
+                            <i
+                                class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
+                        </div>
+                    </li>
 
-                        <div class="container-sidebar-right-waiting-list-item">
-                            <img src="imgSong.jpg" />
-                            <div class="container-sidebar-right-waiting-list-info">
-                                <div class="container-sidebar-right-waiting-list-title">Bầu Trời Mới</div>
-                                <div class="container-sidebar-right-waiting-list-artist">Da LAB, Minh Tóc & Lam</div>
+                    <li class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
+                        <div class="container-box-component-songDetail-propose-item-box1">
+                            <span class="container-box-component-songDetail-propose-item-box1-info-top">2</span>
+                            <div class="img-wrapper">
+                                <img src="/img/ST.jpg" alt=""
+                                    class="container-box-component-songDetail-propose-item-box1-img">
+                                <i
+                                    class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
                             </div>
-                            <span class="container-sidebar-right-waiting-list-more-btn">...</span>
-                        </div>
-                        <div class="container-sidebar-right-waiting-list-item">
-                            <img src="imgSong.jpg" />
-                            <div class="container-sidebar-right-waiting-list-info">
-                                <div class="container-sidebar-right-waiting-list-title">Bầu Trời Mới</div>
-                                <div class="container-sidebar-right-waiting-list-artist">Da LAB, Minh Tóc & Lam</div>
+                            <div class="container-box-component-songDetail-propose-item-box1-info">
+                                <span class="container-box-component-songDetail-propose-item-box1-info-name">Hết
+                                    thương cạn nhớ</span>
                             </div>
-                            <span class="container-sidebar-right-waiting-list-more-btn">...</span>
                         </div>
-                        <div class="container-sidebar-right-waiting-list-item">
-                            <img src="imgSong.jpg" />
-                            <div class="container-sidebar-right-waiting-list-info">
-                                <div class="container-sidebar-right-waiting-list-title">Bầu Trời Mới</div>
-                                <div class="container-sidebar-right-waiting-list-artist">Da LAB, Minh Tóc & Lam</div>
-                            </div>
-                            <span class="container-sidebar-right-waiting-list-more-btn">...</span>
-                        </div>
-                        <div class="container-sidebar-right-waiting-list-item">
-                            <img src="imgSong.jpg" />
-                            <div class="container-sidebar-right-waiting-list-info">
-                                <div class="container-sidebar-right-waiting-list-title">Bầu Trời Mới</div>
-                                <div class="container-sidebar-right-waiting-list-artist">Da LAB, Minh Tóc & Lam</div>
-                            </div>
-                            <span class="container-sidebar-right-waiting-list-more-btn">...</span>
-                        </div>
-                        <div class="container-sidebar-right-waiting-list-item">
-                            <img src="imgSong.jpg" />
-                            <div class="container-sidebar-right-waiting-list-info">
-                                <div class="container-sidebar-right-waiting-list-title">Bầu Trời Mới</div>
-                                <div class="container-sidebar-right-waiting-list-artist">Da LAB, Minh Tóc & Lam</div>
-                            </div>
-                            <span class="container-sidebar-right-waiting-list-more-btn">...</span>
-                        </div>
-                        <div class="container-sidebar-right-waiting-list-item">
-                            <img src="imgSong.jpg" />
-                            <div class="container-sidebar-right-waiting-list-info">
-                                <div class="container-sidebar-right-waiting-list-title">Bầu Trời Mới</div>
-                                <div class="container-sidebar-right-waiting-list-artist">Da LAB, Minh Tóc & Lam</div>
-                            </div>
-                            <span class="container-sidebar-right-waiting-list-more-btn">...</span>
-                        </div>
-                        <div class="container-sidebar-right-waiting-list-item">
-                            <img src="imgSong.jpg" />
-                            <div class="container-sidebar-right-waiting-list-info">
-                                <div class="container-sidebar-right-waiting-list-title">Bầu Trời Mới</div>
-                                <div class="container-sidebar-right-waiting-list-artist">Da LAB, Minh Tóc & Lam</div>
-                            </div>
-                            <span class="container-sidebar-right-waiting-list-more-btn">...</span>
-                        </div>
-                        <div class="container-sidebar-right-waiting-list-item">
-                            <img src="imgSong.jpg" />
-                            <div class="container-sidebar-right-waiting-list-info">
-                                <div class="container-sidebar-right-waiting-list-title">Bầu Trời Mới</div>
-                                <div class="container-sidebar-right-waiting-list-artist">Da LAB, Minh Tóc & Lam</div>
-                            </div>
-                            <span class="container-sidebar-right-waiting-list-more-btn">...</span>
-                        </div>
+                        <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
+                        <div class="container-box-component-songDetail-propose-item-box3">
 
+                            <span class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
+                            <i
+                                class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
+                        </div>
+                    </li>
 
-                    </div>
+                    <li class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
+                        <div class="container-box-component-songDetail-propose-item-box1">
+                            <span class="container-box-component-songDetail-propose-item-box1-info-top">3</span>
+                            <div class="img-wrapper">
+                                <img src="/img/ST.jpg" alt=""
+                                    class="container-box-component-songDetail-propose-item-box1-img">
+                                <i
+                                    class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
+                            </div>
+                            <div class="container-box-component-songDetail-propose-item-box1-info">
+                                <span class="container-box-component-songDetail-propose-item-box1-info-name">Hết
+                                    thương cạn nhớ</span>
+                            </div>
+                        </div>
+                        <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
+                        <div class="container-box-component-songDetail-propose-item-box3">
 
-                </div>
+                            <span class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
+                            <i
+                                class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
+                        </div>
+                    </li>
 
+                    <li class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
+                        <div class="container-box-component-songDetail-propose-item-box1">
+                            <span class="container-box-component-songDetail-propose-item-box1-info-top">4</span>
+                            <div class="img-wrapper">
+                                <img src="/img/ST.jpg" alt=""
+                                    class="container-box-component-songDetail-propose-item-box1-img">
+                                <i
+                                    class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
+                            </div>
+                            <div class="container-box-component-songDetail-propose-item-box1-info">
+                                <span class="container-box-component-songDetail-propose-item-box1-info-name">Hết
+                                    thương cạn nhớ</span>
+                            </div>
+                        </div>
+                        <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
+                        <div class="container-box-component-songDetail-propose-item-box3">
+
+                            <span class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
+                            <i
+                                class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
+                        </div>
+                    </li>
+
+                    <li class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
+                        <div class="container-box-component-songDetail-propose-item-box1">
+                            <span class="container-box-component-songDetail-propose-item-box1-info-top">5</span>
+                            <div class="img-wrapper">
+                                <img src="/img/ST.jpg" alt=""
+                                    class="container-box-component-songDetail-propose-item-box1-img">
+                                <i
+                                    class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
+                            </div>
+                            <div class="container-box-component-songDetail-propose-item-box1-info">
+                                <span class="container-box-component-songDetail-propose-item-box1-info-name">Hết
+                                    thương cạn nhớ</span>
+                            </div>
+                        </div>
+                        <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
+                        <div class="container-box-component-songDetail-propose-item-box3">
+
+                            <span class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
+                            <i
+                                class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
+                        </div>
+                    </li>
+
+                    <li class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
+                        <div class="container-box-component-songDetail-propose-item-box1">
+                            <span class="container-box-component-songDetail-propose-item-box1-info-top">6</span>
+                            <div class="img-wrapper">
+                                <img src="/img/ST.jpg" alt=""
+                                    class="container-box-component-songDetail-propose-item-box1-img">
+                                <i
+                                    class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
+                            </div>
+                            <div class="container-box-component-songDetail-propose-item-box1-info">
+                                <span class="container-box-component-songDetail-propose-item-box1-info-name">Hết
+                                    thương cạn nhớ</span>
+                            </div>
+                        </div>
+                        <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
+                        <div class="container-box-component-songDetail-propose-item-box3">
+
+                            <span class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
+                            <i
+                                class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
+                        </div>
+                    </li>
+
+                    <li class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
+                        <div class="container-box-component-songDetail-propose-item-box1">
+                            <span class="container-box-component-songDetail-propose-item-box1-info-top">7</span>
+                            <div class="img-wrapper">
+                                <img src="/img/ST.jpg" alt=""
+                                    class="container-box-component-songDetail-propose-item-box1-img">
+                                <i
+                                    class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
+                            </div>
+                            <div class="container-box-component-songDetail-propose-item-box1-info">
+                                <span class="container-box-component-songDetail-propose-item-box1-info-name">Hết
+                                    thương cạn nhớ</span>
+                            </div>
+                        </div>
+                        <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
+                        <div class="container-box-component-songDetail-propose-item-box3">
+
+                            <span class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
+                            <i
+                                class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
+                        </div>
+                    </li>
+
+                    <li class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
+                        <div class="container-box-component-songDetail-propose-item-box1">
+                            <span class="container-box-component-songDetail-propose-item-box1-info-top">8</span>
+                            <div class="img-wrapper">
+                                <img src="/img/ST.jpg" alt=""
+                                    class="container-box-component-songDetail-propose-item-box1-img">
+                                <i
+                                    class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
+                            </div>
+                            <div class="container-box-component-songDetail-propose-item-box1-info">
+                                <span class="container-box-component-songDetail-propose-item-box1-info-name">Hết
+                                    thương cạn nhớ</span>
+                            </div>
+                        </div>
+                        <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
+                        <div class="container-box-component-songDetail-propose-item-box3">
+
+                            <span class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
+                            <i
+                                class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
+                        </div>
+                    </li>
+
+                    <li class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
+                        <div class="container-box-component-songDetail-propose-item-box1">
+                            <span class="container-box-component-songDetail-propose-item-box1-info-top">9</span>
+                            <div class="img-wrapper">
+                                <img src="/img/ST.jpg" alt=""
+                                    class="container-box-component-songDetail-propose-item-box1-img">
+                                <i
+                                    class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
+                            </div>
+                            <div class="container-box-component-songDetail-propose-item-box1-info">
+                                <span class="container-box-component-songDetail-propose-item-box1-info-name">Hết
+                                    thương cạn nhớ</span>
+                            </div>
+                        </div>
+                        <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
+                        <div class="container-box-component-songDetail-propose-item-box3">
+
+                            <span class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
+                            <i
+                                class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
+                        </div>
+                    </li>
+
+                    <li class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
+                        <div class="container-box-component-songDetail-propose-item-box1">
+                            <span class="container-box-component-songDetail-propose-item-box1-info-top">10</span>
+                            <div class="img-wrapper">
+                                <img src="/img/ST.jpg" alt=""
+                                    class="container-box-component-songDetail-propose-item-box1-img">
+                                <i
+                                    class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
+                            </div>
+                            <div class="container-box-component-songDetail-propose-item-box1-info">
+                                <span class="container-box-component-songDetail-propose-item-box1-info-name">Hết
+                                    thương cạn nhớ</span>
+                            </div>
+                        </div>
+                        <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
+                        <div class="container-box-component-songDetail-propose-item-box3">
+
+                            <span class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
+                            <i
+                                class="fa-solid fa-ellipsis container-box-component-songDetail-propose-item-box3-time-ellipsis"></i>
+                        </div>
+                    </li>
+                </ul>
+                <button id="toggleListBtn-artistPage">Xem thêm</button>
             </div>
 
 
         </div>
-        <div class="footer-login">
 
-            <div class="footer-homepage-left">
-                <div class="footer-homepage-left--img">
-                    <img src="ST.jpg" alt="">
+        <!-- Những bài hát thịnh hành -->
+        <div class="container-box-component">
+            <div class="container-box-component--header">
+                <div class="container-box-component--header--div">
+                    <span class="container-box-component--header--text">Album của Sơn Tùng - MTP</span>
+                    <span class="container-box-component--header--showAll">Hiện tất cả</span>
                 </div>
-                <div class="footer-homepage-left--content">
-                    <span class="footer-homepage-left--title">Đừng Làm Trái Tim Anh Đau</span>
-                    <span class="footer-homepage-left--subtitle">Sơn Tùng MTP</span>
-                </div>
-                <div class="footer-homepage-left--plusicon">
-                    <i class="fa-solid fa-plus footer-homepage-left--plusicon-plus"></i>
-                    <!-- container-sidebar-right-boxx-popup -->
-                    <div class="container-sidebar-right-boxx1-popup">
-                        <div class="container-sidebar-right-boxx1-popup-header">Thêm vào danh sách phát</div>
-                        <input type="text" placeholder="Tìm một danh sách phát"
-                            class="container-sidebar-right-boxx1-playlist-search" />
+                <div class="slider-container">
+                    <button class="container-box-component--header--list--btn-left">&#10094;</button>
+                    <ul class="container-box-component--header--list">
 
-                        <div
-                            class="container-sidebar-right-boxx1-playlist-item container-sidebar-right-boxx1-create-new">
-                            <span class="container-sidebar-right-boxx1-plus">+</span> Danh sách phát mới
-                        </div>
-
-                        <ul class="container-sidebar-right-boxx1-playlist-list">
-                            <li class="container-sidebar-right-boxx1-playlist-item" onclick="toggleSelect1(this)">
-                                <div class="container-sidebar-right-boxx1-icon container-sidebar-right-boxx1-purple">
-                                    <span>♥</span>
-                                </div>
-                                <span class="container-sidebar-right-boxx1-text">Bài hát đã thích</span>
-                                <div class="container-sidebar-right-boxx1-circle">
-                                    <span class="container-sidebar-right-boxx1-check">✔</span>
-                                </div>
-                            </li>
-
-                            <li class="container-sidebar-right-boxx1-playlist-item" onclick="toggleSelect1(this)">
-                                <img src="imgSong.jpg" alt="" class="container-sidebar-right-boxx1-icon" />
-                                <span class="container-sidebar-right-boxx1-text">Danh sách phát của tôi #1</span>
-                                <div class="container-sidebar-right-boxx1-circle">
-                                    <span class="container-sidebar-right-boxx1-check">✔</span>
-                                </div>
-                            </li>
-                            <li class="container-sidebar-right-boxx1-playlist-item" onclick="toggleSelect1(this)">
-                                <img src="imgSong.jpg" alt="" class="container-sidebar-right-boxx1-icon" />
-                                <span class="container-sidebar-right-boxx1-text">Danh sách phát của tôi #1</span>
-                                <div class="container-sidebar-right-boxx1-circle">
-                                    <span class="container-sidebar-right-boxx1-check">✔</span>
-                                </div>
-                            </li>
-                            <li class="container-sidebar-right-boxx1-playlist-item" onclick="toggleSelect1(this)">
-                                <img src="imgSong.jpg" alt="" class="container-sidebar-right-boxx1-icon" />
-                                <span class="container-sidebar-right-boxx1-text">Danh sách phát của tôi #1</span>
-                                <div class="container-sidebar-right-boxx1-circle">
-                                    <span class="container-sidebar-right-boxx1-check">✔</span>
-                                </div>
-                            </li>
-                            <li class="container-sidebar-right-boxx1-playlist-item" onclick="toggleSelect1(this)">
-                                <img src="imgSong.jpg" alt="" class="container-sidebar-right-boxx1-icon" />
-                                <span class="container-sidebar-right-boxx1-text">Danh sách phát của tôi #1</span>
-                                <div class="container-sidebar-right-boxx1-circle">
-                                    <span class="container-sidebar-right-boxx1-check">✔</span>
-                                </div>
-                            </li>
-                            <li class="container-sidebar-right-boxx1-playlist-item" onclick="toggleSelect1(this)">
-                                <img src="imgSong.jpg" alt="" class="container-sidebar-right-boxx1-icon" />
-                                <span class="container-sidebar-right-boxx1-text">Danh sách phát của tôi #1</span>
-                                <div class="container-sidebar-right-boxx1-circle">
-                                    <span class="container-sidebar-right-boxx1-check">✔</span>
-                                </div>
-                            </li>
-
-                            <!-- thêm nhiều li nếu muốn test scroll -->
-                        </ul>
-
-
-
-                        <div class="container-sidebar-right-boxx1-popup-footer">
-                            <button
-                                class="container-sidebar-right-boxx1-btn container-sidebar-right-boxx1-cancel">Hủy</button>
-                            <button
-                                class="container-sidebar-right-boxx1-btn container-sidebar-right-boxx1-confirm">Xong</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-homepage-player-container">
-                <div class="footer-homepage-controls">
-                    <button class="footer-homepage-controls-btn"><i
-                            class="fa-solid fa-shuffle fa-outside "></i></button>
-                    <button class="footer-homepage-controls-btn "><i
-                            class="fa-solid fa-backward-fast fa-outside"></i></button>
-                    <button class="footer-homepage-controls-fa-play"> <i
-                            class="fa-solid fa-play fa-inside fa-play-controls"></i></button>
-                    <button class="footer-homepage-controls-btn"><i
-                            class="fa-solid fa-forward-fast fa-outside"></i></button>
-                    <button class="footer-homepage-controls-btn footer-homepage-controls-btn-repeat"><i
-                            class="fa-solid fa-repeat fa-outside"></i></button>
-                    <button class="footer-homepage-controls-btn footer-homepage-controls-btn-repeat1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-repeat-1" viewBox="0 0 16 16">
-                            <path
-                                d="M11 4v1.466a.25.25 0 0 0 .41.192l2.36-1.966a.25.25 0 0 0 0-.384l-2.36-1.966a.25.25 0 0 0-.41.192V3H5a5 5 0 0 0-4.48 7.223.5.5 0 0 0 .896-.446A4 4 0 0 1 5 4zm4.48 1.777a.5.5 0 0 0-.896.446A4 4 0 0 1 11 12H5.001v-1.466a.25.25 0 0 0-.41-.192l-2.36 1.966a.25.25 0 0 0 0 .384l2.36 1.966a.25.25 0 0 0 .41-.192V13h6a5 5 0 0 0 4.48-7.223Z" />
-                            <path
-                                d="M9 5.5a.5.5 0 0 0-.854-.354l-1.75 1.75a.5.5 0 1 0 .708.708L8 6.707V10.5a.5.5 0 0 0 1 0z" />
-                        </svg>
-                    </button>
-
-                </div>
-
-                <div class="footer-homepage-progress-container">
-                    <span class="time" id="currentTime">0:00</span>
-                    <div class="footer-homepage-progress-bar-bg" id="progressBar">
-                        <div class="footer-homepage-progress-bar-fill" id="progressFill"></div>
-                    </div>
-                    <span class="footer-homepage-time" id="duration">0:00</span>
-                </div>
-
-                <!-- Audio -->
-                <audio id="audio" src="songgio.mp3"></audio>
-            </div>
-            <div class="footer-homepage-right">
-                <button class="footer-homepage-right-btn footer-homepage-right-active"><i
-                        class="fa-regular fa-circle-play"></i><span class="footer-homepage-right-dot"></span></button>
-                <button class="footer-homepage-right-btn "><i class="fa-solid fa-microphone"></i></button>
-                <button class="footer-homepage-right-btn"><i class="fa-solid fa-list-check"></i></button>
-                <button class="footer-homepage-right-btn1 footer-homepage-right-btn--valume"><i
-                        class="fa-solid fa-volume-high"></i></button>
-
-                <input type="range" class="footer-homepage-right-volume-bar" min="0" max="100" value="80">
-            </div>
-        </div>
-        <!-- Menu popup -->
-        <div id="contextMenu" class="container-sidebar-right-waiting-list-context-menu">
-            <div
-                class="container-sidebar-right-waiting-list-menu-item container-sidebar-right-waiting-list-menu-item-boxx2">
-                <i class="fas fa-plus"></i>
-                Thêm vào danh sách phát
-                <!-- container-sidebar-right-boxx2-popup -->
-                <div class="container-sidebar-right-boxx2-popup">
-                    <div class="container-sidebar-right-boxx2-popup-header">Thêm vào danh sách phát</div>
-                    <input type="text" placeholder="Tìm một danh sách phát"
-                        class="container-sidebar-right-boxx2-playlist-search" />
-
-                    <div class="container-sidebar-right-boxx2-playlist-item container-sidebar-right-boxx2-create-new">
-                        <span class="container-sidebar-right-boxx2-plus">+</span> Danh sách phát mới
-                    </div>
-
-                    <ul class="container-sidebar-right-boxx2-playlist-list">
-                        <li class="container-sidebar-right-boxx2-playlist-item" onclick="toggleSelect2(this)">
-                            <div class="container-sidebar-right-boxx2-icon container-sidebar-right-boxx2-purple">
-                                <span>♥</span>
+                        <li class="container-box-component--header--item">
+                            <div class="song-thumbnail">
+                                <img src="/img/imgSong.jpg" alt="" class="container-box-component--header--item--img" />
+                                <span class="container-box-component--header--item--icon-play">
+                                    <i class="fa-solid fa-play"></i>
+                                </span>
                             </div>
-                            <span class="container-sidebar-right-boxx2-text">Bài hát đã thích</span>
-                            <div class="container-sidebar-right-boxx2-circle">
-                                <span class="container-sidebar-right-boxx2-check">✔</span>
-                            </div>
+                            <span class="container-box-component--header--item--nameSong">Nằm Bên Anh</span>
+                            <span class="container-box-component--header--item--artist">Minh Đinh, Hà An
+                                Huy</span>
                         </li>
 
-                        <li class="container-sidebar-right-boxx2-playlist-item" onclick="toggleSelect2(this)">
-                            <img src="imgSong.jpg" alt="" class="container-sidebar-right-boxx2-icon" />
-                            <span class="container-sidebar-right-boxx2-text">Danh sách phát của tôi #1</span>
-                            <div class="container-sidebar-right-boxx2-circle">
-                                <span class="container-sidebar-right-boxx2-check">✔</span>
+                        <li class="container-box-component--header--item">
+                            <div class="song-thumbnail">
+                                <img src="/img/imgSong.jpg" alt="" class="container-box-component--header--item--img" />
+                                <span class="container-box-component--header--item--icon-play">
+                                    <i class="fa-solid fa-play"></i>
+                                </span>
                             </div>
+                            <span class="container-box-component--header--item--nameSong">Nằm Bên Anh</span>
+                            <span class="container-box-component--header--item--artist">Minh Đinh, Hà An
+                                Huy</span>
                         </li>
 
+                        <li class="container-box-component--header--item">
+                            <div class="song-thumbnail">
+                                <img src="/img/imgSong.jpg" alt="" class="container-box-component--header--item--img" />
+                                <span class="container-box-component--header--item--icon-play">
+                                    <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                            <span class="container-box-component--header--item--nameSong">Nằm Bên Anh</span>
+                            <span class="container-box-component--header--item--artist">Minh Đinh, Hà An
+                                Huy</span>
+                        </li>
 
-                        <!-- thêm nhiều li nếu muốn test scroll -->
+                        <li class="container-box-component--header--item">
+                            <div class="song-thumbnail">
+                                <img src="/img/imgSong.jpg" alt="" class="container-box-component--header--item--img" />
+                                <span class="container-box-component--header--item--icon-play">
+                                    <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                            <span class="container-box-component--header--item--nameSong">Nằm Bên Anh</span>
+                            <span class="container-box-component--header--item--artist">Minh Đinh, Hà An
+                                Huy</span>
+                        </li>
+
+                        <li class="container-box-component--header--item">
+                            <div class="song-thumbnail">
+                                <img src="/img/imgSong.jpg" alt="" class="container-box-component--header--item--img" />
+                                <span class="container-box-component--header--item--icon-play">
+                                    <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                            <span class="container-box-component--header--item--nameSong">Nằm Bên Anh</span>
+                            <span class="container-box-component--header--item--artist">Minh Đinh, Hà An
+                                Huy</span>
+                        </li>
+
+                        <li class="container-box-component--header--item">
+                            <div class="song-thumbnail">
+                                <img src="/img/imgSong.jpg" alt="" class="container-box-component--header--item--img" />
+                                <span class="container-box-component--header--item--icon-play">
+                                    <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                            <span class="container-box-component--header--item--nameSong">Nằm Bên Anh</span>
+                            <span class="container-box-component--header--item--artist">Minh Đinh, Hà An
+                                Huy</span>
+                        </li>
+
                     </ul>
-
-
-
-                    <div class="container-sidebar-right-boxx2-popup-footer">
-                        <button
-                            class="container-sidebar-right-boxx2-btn container-sidebar-right-boxx2-cancel">Hủy</button>
-                        <button
-                            class="container-sidebar-right-boxx2-btn container-sidebar-right-boxx2-confirm">Xong</button>
-                    </div>
+                    <button class="container-box-component--header--list--btn-right">&#10095;</button>
                 </div>
             </div>
-            <div class="container-sidebar-right-waiting-list-menu-item"><i class="fas fa-heart"></i> Lưu vào
-                Bài hát đã thích</div>
-            <div class="container-sidebar-right-waiting-list-menu-item"><i class="fas fa-clock"></i> Thêm
-                vào danh sách chờ</div>
-            <div class="container-sidebar-right-waiting-list-menu-item"><i class="fas fa-trash"></i> Xóa
-                khỏi danh sách chờ</div>
-            <hr>
-            <div class="container-sidebar-right-waiting-list-menu-item"><i class="fas fa-broadcast-tower"></i> Chuyển
-                đến radio theo bài hát</div>
-            <div class="container-sidebar-right-waiting-list-menu-item"><i class="fas fa-user"></i> Chuyển
-                tới nghệ sĩ</div>
-            <div class="container-sidebar-right-waiting-list-menu-item"><i class="fas fa-compact-disc"></i>
-                Chuyển đến album</div>
-            <div class="container-sidebar-right-waiting-list-menu-item"><i class="fas fa-info-circle"></i>
-                Xem thông tin ghi công</div>
-            <div class="container-sidebar-right-waiting-list-menu-item"><i class="fas fa-share-alt"></i>
-                Chia sẻ</div>
+        </div>
 
+        <!-- Footer -->
+        <div class="container-box-footer">
+            <div class="box--list">
+                <ul class="container-box-footer--list">
+                    <h3 class="container-box-footer--header3">Công ty</h3>
+                    <li class="container-box-footer--item">Giới thiệu</li>
+                    <li class="container-box-footer--item">Việc làm</li>
+                    <li class="container-box-footer--item">For the Record</li>
+                </ul>
+                <ul class="container-box-footer--list">
+                    <h3 class="container-box-footer--header3">Cộng đồng</h3>
+                    <li class="container-box-footer--item">Dành cho các Nghệ sĩ</li>
+                    <li class="container-box-footer--item">Nhà Phát triển</li>
+                    <li class="container-box-footer--item">Quảng cáo</li>
+                    <li class="container-box-footer--item">Nhà đầu tư</li>
+                    <li class="container-box-footer--item">Nhà cung cấp</li>
+
+                </ul>
+                <ul class="container-box-footer--list">
+                    <h3 class="container-box-footer--header3">Liên kết hữu ích</h3>
+                    <li class="container-box-footer--item">Hỗ trợ</li>
+                    <li class="container-box-footer--item">Ứng dụng di động miễn phí</li>
+                    <li class="container-box-footer--item">Phổ biến quốc gia</li>
+                </ul>
+                <ul class="container-box-footer--list">
+                    <h3 class="container-box-footer--header3">Các gói của Spotify</h3>
+                    <li class="container-box-footer--item">Premium Individual</li>
+                    <li class="container-box-footer--item">Premium Student</li>
+                    <li class="container-box-footer--item">Spotify free</li>
+                </ul>
+            </div>
+            <div class="box--icon">
+                <span class="box--icon--span">
+                    <i class="fa-brands fa-instagram"></i>
+                </span>
+                <span class="box--icon--span">
+                    <i class="fa-brands fa-facebook"></i>
+                </span>
+                <span class="box--icon--span">
+                    <i class="fa-brands fa-twitter"></i>
+                </span>
+            </div>
         </div>
     </div>
-    <!-- Overlay + Modal -->
-    <div class="container-box-userPage-overlay" id="userPageOverlay">
-        <div class="container-box-userPage-modal" id="userPageModal">
-            <div class="container-box-userPage-modal-close" id="userPageCloseBtn">&times;</div>
-            <div class="container-box-userPage-modal-header">Chi tiết hồ sơ</div>
-            <div class="container-box-userPage-avatar">
-                <i class="fa-solid fa-user"></i>
-                <div class="avatar-overlay">
-                    <span class="avatar-action choose">Chọn ảnh</span>
-                    <i class="fa-solid fa-pen"></i>
-                    <span class="avatar-action delete">Xóa ảnh</span>
+    <% } else { %>
+        <div class="container-box-content1 container-box-content-artistdetailPage">
+            <!-- Những bài hát thịnh hành -->
+            <div class="container-box-artistdetailPage">
+                <div class="container-box-artistdetail-header"
+                    style="background-image: url('/img/Making-my-way-son-tung-mtp-2.png');">
+
+                    <div class="container-box-artistdetail-header-overlay">
+                        <div class="container-box-artistdetail-header-info">
+                            <span class="container-box-artistdetail-verified-badge">HỒ SƠ NGHỆ SĨ</span>
+                            <h1 class="container-box-artistdetail-name">Sơn Tùng M-TP</h1>
+                            <div class="container-box-artistdetail-subinfo">1.776.400 follows
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-box-component-playlistPage-controls container-box-artistdetailPage-control">
+                    <button class="container-box-component-userPage-btn-icon">⋯</button>
+                    <div class="userPage-popup-menu">
+                        <ul>
+                            <li class="edit-profile-btn"><i class="fa-solid fa-pen"></i> Chỉnh sửa hồ sơ cá nhân
+                            </li>
+                            <li><i class="fa-solid fa-share"></i> Sao chép đường link tới hồ sơ</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="container-box-component-songDetail-propose">
+                    <div class="container-box-component-headerr">
+                        <h1 class="container-box-component-songDetail-propose-title">Các bài hát của tôi</h1>
+                        <button class="container-box-component-headerr-btn add-new-song-box">Add new</button>
+                    </div>
+
+                    <ul class="container-box-component-songDetail-propose-list container-box-artistdetailPage-list">
+                        <li class="container-box-component-songDetail-propose-item container-box-artistdetailPage-item">
+                            <div class="container-box-component-songDetail-propose-item-box1">
+                                <span class="container-box-component-songDetail-propose-item-box1-info-top">1</span>
+                                <div class="img-wrapper">
+                                    <img src="/img/ST.jpg" alt=""
+                                        class="container-box-component-songDetail-propose-item-box1-img">
+                                    <i
+                                        class="fa-solid fa-play container-box-component-songDetail-propose-item-box1-play-icon"></i>
+                                </div>
+                                <div class="container-box-component-songDetail-propose-item-box1-info">
+                                    <span class="container-box-component-songDetail-propose-item-box1-info-name">Hết
+                                        thương cạn nhớ</span>
+
+                                </div>
+                            </div>
+                            <div class="container-box-component-songDetail-propose-item-box2">400.000.000</div>
+                            <div class="container-box-component-songDetail-propose-item-box3">
+
+                                <span class="container-box-component-songDetail-propose-item-box3-time">4:17</span>
+                                <i class="fa-solid fa-ellipsis ellipsis-list-song"></i>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <button id="toggleListBtn-artistPage">Xem thêm</button>
+                </div>
+                <div class="container-box-component-albumList-propose">
+                    <div class="container-box-component-headerr">
+                        <h1 class="container-box-component-songDetail-propose-title">Các Album của tôi</h1>
+                        <button class="container-box-component-headerr-btn add-new-album-btn"
+                            onclick="toggleAddNewAlbum()">Add new</button>
+                    </div>
+                    <ul class="container-box-component-albumList-propose-list container-box-artistdetailPage-list">
+                        <li class="container-box-component-albumList-propose-item container-box-artistdetailPage-item">
+                            <div class="album-main-info">
+                                <div class="container-box-component-albumList-propose-item-box1">
+                                    <span class="container-box-component-albumList-propose-item-box1-info-top">1</span>
+                                    <div class="img-wrapper">
+                                        <img src="/img/ST.jpg" alt=""
+                                            class="container-box-component-albumList-propose-item-box1-img">
+                                        <i
+                                            class="fa-solid fa-play container-box-component-albumList-propose-item-box1-play-icon"></i>
+                                    </div>
+                                    <div class="container-box-component-albumList-propose-item-box1-info">
+                                        <span
+                                            class="container-box-component-albumList-propose-item-box1-info-name">Album
+                                            1</span>
+                                    </div>
+                                </div>
+                                <div class="container-box-component-albumList-propose-item-box2 quantity-song"
+                                    onclick="toggleSongs(this)">3 bài hát</div>
+                                <div class="container-box-component-albumList-propose-item-box3">
+                                    <span class="container-box-component-albumList-propose-item-box3-time">4:17</span>
+                                    <i class="fa-solid fa-ellipsis ellipsis-list-album"></i>
+                                </div>
+                            </div>
+
+                            <!-- Danh sách bài hát ẩn -->
+                            <ul class="album-song-list">
+                                <li class="album-song-item">Hết thương cạn nhớ</li>
+                                <li class="album-song-item">Lạc trôi</li>
+                                <li class="album-song-item">Chúng ta của hiện tại</li>
+                            </ul>
+                        </li>
+                        <li class="container-box-component-albumList-propose-item container-box-artistdetailPage-item">
+                            <div class="album-main-info">
+                                <div class="container-box-component-albumList-propose-item-box1">
+                                    <span class="container-box-component-albumList-propose-item-box1-info-top">1</span>
+                                    <div class="img-wrapper">
+                                        <img src="/img/ST.jpg" alt=""
+                                            class="container-box-component-albumList-propose-item-box1-img">
+                                        <i
+                                            class="fa-solid fa-play container-box-component-albumList-propose-item-box1-play-icon"></i>
+                                    </div>
+                                    <div class="container-box-component-albumList-propose-item-box1-info">
+                                        <span
+                                            class="container-box-component-albumList-propose-item-box1-info-name">Album
+                                            1</span>
+                                    </div>
+                                </div>
+                                <div class="container-box-component-albumList-propose-item-box2 quantity-song"
+                                    onclick="toggleSongs(this)">3 bài hát</div>
+                                <div class="container-box-component-albumList-propose-item-box3">
+                                    <span class="container-box-component-albumList-propose-item-box3-time">4:17</span>
+                                    <i class="fa-solid fa-ellipsis ellipsis-list-album"></i>
+                                </div>
+                            </div>
+
+                            <!-- Danh sách bài hát ẩn -->
+                            <ul class="album-song-list">
+                                <li class="album-song-item">Hết thương cạn nhớ</li>
+                                <li class="album-song-item">Lạc trôi</li>
+                                <li class="album-song-item">Chúng ta của hiện tại</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <button id="toggleListBtn-albumList">Xem thêm</button>
+                </div>
+
+
+            </div>
+
+            <!-- Footer -->
+            <div class="container-box-footer">
+                <div class="box--list">
+                    <ul class="container-box-footer--list">
+                        <h3 class="container-box-footer--header3">Công ty</h3>
+                        <li class="container-box-footer--item">Giới thiệu</li>
+                        <li class="container-box-footer--item">Việc làm</li>
+                        <li class="container-box-footer--item">For the Record</li>
+                    </ul>
+                    <ul class="container-box-footer--list">
+                        <h3 class="container-box-footer--header3">Cộng đồng</h3>
+                        <li class="container-box-footer--item">Dành cho các Nghệ sĩ</li>
+                        <li class="container-box-footer--item">Nhà Phát triển</li>
+                        <li class="container-box-footer--item">Quảng cáo</li>
+                        <li class="container-box-footer--item">Nhà đầu tư</li>
+                        <li class="container-box-footer--item">Nhà cung cấp</li>
+
+                    </ul>
+                    <ul class="container-box-footer--list">
+                        <h3 class="container-box-footer--header3">Liên kết hữu ích</h3>
+                        <li class="container-box-footer--item">Hỗ trợ</li>
+                        <li class="container-box-footer--item">Ứng dụng di động miễn phí</li>
+                        <li class="container-box-footer--item">Phổ biến quốc gia</li>
+                    </ul>
+                    <ul class="container-box-footer--list">
+                        <h3 class="container-box-footer--header3">Các gói của Spotify</h3>
+                        <li class="container-box-footer--item">Premium Individual</li>
+                        <li class="container-box-footer--item">Premium Student</li>
+                        <li class="container-box-footer--item">Spotify free</li>
+                    </ul>
+                </div>
+                <div class="box--icon">
+                    <span class="box--icon--span">
+                        <i class="fa-brands fa-instagram"></i>
+                    </span>
+                    <span class="box--icon--span">
+                        <i class="fa-brands fa-facebook"></i>
+                    </span>
+                    <span class="box--icon--span">
+                        <i class="fa-brands fa-twitter"></i>
+                    </span>
                 </div>
             </div>
-            <input type="text" placeholder="Nhân" />
-            <button id="userPageSaveBtn">Lưu</button>
-            <p>Bằng cách tiếp tục, bạn đồng ý cho phép Spotify truy cập vào hình ảnh bạn đã chọn để tải lên. Vui lòng
-                đảm bảo bạn có quyền tải lên hình ảnh.</p>
         </div>
-    </div>
+        <% } %>

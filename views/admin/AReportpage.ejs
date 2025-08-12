@@ -1,0 +1,70 @@
+<div class="AReportpage-container">
+    <h1 class="AReportpage-title">📊 Reports Dashboard</h1>
+
+    <!-- Filter Toolbar -->
+    <div class="AReportpage-toolbar">
+        <select class="AReportpage-filter">
+            <option value="weekly">Weekly Report</option>
+            <option value="monthly">Monthly Report</option>
+            <option value="yearly">Yearly Report</option>
+        </select>
+        <input type="date" class="AReportpage-date" />
+    </div>
+
+    <!-- Report Cards -->
+    <div class="AReportpage-cards">
+        <div class="AReportpage-card">
+            <i class="fas fa-headphones AReportpage-icon"></i>
+            <div class="AReportpage-metric-title">Total Streams</div>
+            <div class="AReportpage-metric-value">5,289,100</div>
+        </div>
+        <div class="AReportpage-card">
+            <i class="fas fa-user AReportpage-icon"></i>
+            <div class="AReportpage-metric-title">Active Users</div>
+            <div class="AReportpage-metric-value">721,345</div>
+        </div>
+        <div class="AReportpage-card">
+            <i class="fas fa-compact-disc AReportpage-icon"></i>
+            <div class="AReportpage-metric-title">Top Song</div>
+            <div class="AReportpage-metric-value">"Blinding Lights"</div>
+        </div>
+        <div class="AReportpage-card">
+            <i class="fas fa-microphone-alt AReportpage-icon"></i>
+            <div class="AReportpage-metric-title">Top Artist</div>
+            <div class="AReportpage-metric-value">The Weeknd</div>
+        </div>
+    </div>
+
+    <!-- Table of Reported Issues -->
+    <h2 class="AReportpage-subtitle">⚠️ Copyright Violations</h2>
+    <div class="AReportpage-table-wrapper">
+        <table class="AReportpage-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Song</th>
+                    <th>Reported By</th>
+                    <th>Reason</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Unreleased Track</td>
+                    <td>user123</td>
+                    <td>Unauthorized Upload</td>
+                    <td>2025-08-01</td>
+                    <td><span class="AReportpage-status-open">processing</span></td>
+                    <td class="AReportpage-report-actions">
+                        <i class="fas fa-check-circle" title="Mark as Resolved" onclick="markResolved(this)"></i>
+                        <i class="fas fa-trash-alt" title="Delete" onclick="deleteReport(this)"></i>
+                    </td>
+                </tr>
+                <!-- Thêm các dòng khác tương tự -->
+            </tbody>
+        </table>
+    </div>
+</div>
